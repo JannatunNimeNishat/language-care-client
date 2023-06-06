@@ -1,30 +1,48 @@
 
 import { NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.jpg'
+import { useContext } from 'react';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Navbar = () => {
+    const { user,logOut } = useContext(AuthContext);
+
+
+    const handleLogOut = () =>{
+        logOut()
+        .then(()=>{
+
+        })
+        .catch((error)=>{
+            console.log(error.message);
+        })
+    }
 
     const navItems = <>
         <li>
-            <NavLink to='/' className={({isActive}) => isActive ? 'active': '' }>Home</NavLink>
+            <NavLink to='/' className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
         </li>
         <li>
-            <NavLink to='/instructors' className={({isActive}) => isActive ? 'active': '' }>Instructors</NavLink>
+            <NavLink to='/instructors' className={({ isActive }) => isActive ? 'active' : ''}>Instructors</NavLink>
         </li>
         <li>
-            <NavLink to='/classes' className={({isActive}) => isActive ? 'active': '' }>Classes</NavLink>
+            <NavLink to='/classes' className={({ isActive }) => isActive ? 'active' : ''}>Classes</NavLink>
         </li>
-        <li>
-            <NavLink to='/classes' className={({isActive}) => isActive ? 'active': '' }>img</NavLink>
-        </li>
-        <li>
-            <NavLink to='/classes' className={({isActive}) => isActive ? 'active': '' }>Dashboard</NavLink>
-        </li>
+        {
+            user && <>
+                <li>
+                    <NavLink to='/classes' className={({ isActive }) => isActive ? 'active' : ''}>img</NavLink>
+                </li>
+                <li>
+                    <NavLink to='/classes' className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
+                </li>
+            </>
+        }
         {/* <li>
             <NavLink to='/classes' className={({isActive}) => isActive ? 'active': '' }>Login</NavLink>
     
         </li> */}
-       
+
 
 
     </>
@@ -38,7 +56,7 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         {navItems}
-                       
+
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">
@@ -48,12 +66,17 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                {navItems}
+                    {navItems}
                 </ul>
             </div>
             <div className="navbar-end">
                 {/* <a className="btn">Button</a> */}
-                <NavLink to='/login'  className="btn ">Login</NavLink>
+               {
+                user ? 
+                <NavLink onClick={handleLogOut} to='/login' className="btn ">Logout</NavLink>
+                :
+                <NavLink to='/login' className="btn ">Login</NavLink>
+               }
             </div>
         </div>
     );

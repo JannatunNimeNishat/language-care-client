@@ -30,7 +30,7 @@ const Register = () => {
                 console.log(error.message);
             })
         })
-        
+
         .catch(error =>{
             console.log(error.message);
         })
@@ -100,7 +100,7 @@ const Register = () => {
 
                     <input className='mt-5 rounded py-2 text-white font-semibold  primary-bg-color  cursor-pointer' type="submit" value="Register" />
 
-                    <p className='mt-3 text-center'><small>Already have an account ? <Link to='/login' className='font-semibold text-blue-600'>Register</Link></small></p>
+                    <p className='mt-3 text-center'><small>Already have an account ? <Link to='/login' className='font-semibold text-blue-600'>Login</Link></small></p>
                 </form>
                 <div className="divider mb-8 mt-8">OR</div>
 
