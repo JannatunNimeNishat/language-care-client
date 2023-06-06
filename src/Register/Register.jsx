@@ -8,12 +8,32 @@ import SocialLogin from "../Pages/Shared/SocialLogin/SocialLogin";
 import loginAnimation from '../assets/login/login.json'
 
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
-
+    const { singUp, updateUser,} = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
+
+        singUp(data.email, data.password)
+        .then(result =>{
+            console.log(result.user);
+
+            updateUser(data.name, data.photoURL)
+
+            .then(result =>{
+                console.log(result.user);
+            })
+            .then(error=>{
+                console.log(error.message);
+            })
+        })
+        
+        .catch(error =>{
+            console.log(error.message);
+        })
         
     };
 
