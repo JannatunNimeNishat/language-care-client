@@ -13,3 +13,7 @@
 .deactive{
     @apply text-black 
 }
+
+.primary-bg-color{
+    @apply bg-blue-500 hover:bg-blue-800
+}
