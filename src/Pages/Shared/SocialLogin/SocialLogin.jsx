@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const SocialLogin = () => {
@@ -9,7 +10,14 @@ const SocialLogin = () => {
     const navigate = useNavigate()
     const handleGoogleSignIn = ()=>{
         googleSignIn()
-        .then(()=>{
+        .then((result)=>{
+            const loggedUser =result.user;
+            const newUser = {name: loggedUser.displayName, email: loggedUser.email, img:loggedUser.photoURL, role: 'student'}
+            // console.log(newUser);
+            axios.post(`http://localhost:5000/users/${loggedUser.email}`, newUser)
+            .then(result =>{
+                console.log(result.data);
+            })
             navigate('/')
         })
         .catch(error=>{

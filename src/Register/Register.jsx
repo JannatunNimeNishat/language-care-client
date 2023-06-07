@@ -1,6 +1,6 @@
 
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 
 import SocialLogin from "../Pages/Shared/SocialLogin/SocialLogin";
@@ -10,31 +10,41 @@ import loginAnimation from '../assets/login/login.json'
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import axios from "axios";
 
 const Register = () => {
-    const { singUp, updateUser,} = useContext(AuthContext)
+    const { singUp, updateUser, } = useContext(AuthContext)
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const navigate = useNavigate()
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
 
         singUp(data.email, data.password)
-        .then(result =>{
-            console.log(result.user);
-
-            updateUser(data.name, data.photoURL)
-
-            .then(result =>{
+            .then(result => {
                 console.log(result.user);
+
+                updateUser(data.name, data.photoURL)
+                    .then(() => {
+                        //console.log(result.user);
+                        const newUser = { name: data.name, email: data.email, img: data.photoURL, role: 'student' }
+                        console.log(newUser);
+                        axios.post(`http://localhost:5000/users/${data.email}`, newUser)
+                            .then(res => {
+                                console.log(res.data);
+                                navigate('/')
+                            })
+
+                    })
+                    .then(error => {
+                        console.log(error.message);
+                    })
             })
-            .then(error=>{
+
+            .catch(error => {
                 console.log(error.message);
             })
-        })
 
-        .catch(error =>{
-            console.log(error.message);
-        })
-        
     };
 
     return (
@@ -83,20 +93,20 @@ const Register = () => {
 
                     <input className='border-2 rounded mt-1 pl-2 py-1' placeholder='Confirm password'
                         type='password' name="confirmPassword"
-                       
-                           {...register('confirm_password',{
+
+                        {...register('confirm_password', {
                             validate: (value) => value === watch("password") || 'Password do not match'
-                           } )}
+                        })}
 
                     />
-                         {errors.confirm_password && <p className="text-red-500">Password do not match</p>}
+                    {errors.confirm_password && <p className="text-red-500">Password do not match</p>}
 
 
                     <label className="mt-3">Photo URL</label>
                     <input className='border-2  rounded mt-1 pl-2 py-1' placeholder='Enter your Photo URL' type="text" name="photoURL"
-                      {...register("photoURL", { required: true })}
+                        {...register("photoURL", { required: true })}
                     />
-                     {errors.photoURL && <span className="text-red-500 mt-1">This photoURL is required</span>}
+                    {errors.photoURL && <span className="text-red-500 mt-1">This photoURL is required</span>}
 
                     <input className='mt-5 rounded py-2 text-white font-semibold  primary-bg-color  cursor-pointer' type="submit" value="Register" />
 
