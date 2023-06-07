@@ -27,12 +27,12 @@ const Register = () => {
                 updateUser(data.name, data.photoURL)
                     .then(() => {
                         //console.log(result.user);
-                        const newUser = { name: data.name, email: data.email, img: data.photoURL, role: 'student' }
+                        const newUser = { name: data.name, email: data.email, img: data.photoURL, role: 'instructor' }
                         console.log(newUser);
                         axios.post(`http://localhost:5000/users/${data.email}`, newUser)
                             .then(res => {
                                 console.log(res.data);
-                                navigate('/')
+                                // navigate('/')
                             })
 
                     })
