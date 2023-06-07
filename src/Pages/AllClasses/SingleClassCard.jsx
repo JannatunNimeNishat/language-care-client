@@ -11,7 +11,7 @@ import useSelectedClass from "../../hooks/useSelectedClass";
 
 const SingleClassCard = ({ item }) => {
     const { img, class_name, duration, price, total_enrolled_students, instructor_name, available_seats } = item
-    const { user,loading } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const navigate = useNavigate()
     const location = useLocation()
