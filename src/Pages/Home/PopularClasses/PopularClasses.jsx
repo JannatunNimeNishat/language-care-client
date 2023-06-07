@@ -17,7 +17,7 @@ const PopularClasses = () => {
    
 
     return (
-        <div className="mt-20 min-h-[100vh] bg-[#fff6f4] border">
+        <div className="mt-20 min-h-[100vh] bg-[#fff6f4] ">
             <div className=" px-28 py-28">
                 <div className="flex justify-between items-center">
                     <div>
@@ -28,7 +28,7 @@ const PopularClasses = () => {
 
                 </div>
                 {/* card sections */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14">
                     {
                         classes?.map(item => <SingleClass
                             key={item._id} item={item}
