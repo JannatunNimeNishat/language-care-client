@@ -36,7 +36,7 @@ const SingleClassCard = ({ item }) => {
             })
         }
         else{
-            const addCourse = {course_id: item._id , img: item.img, class_name: item.class_name, price: item.price, email: user?.email}
+            const addCourse = {course_id: item._id , img: item.img,instructor_name:item.instructor_name ,class_name: item.class_name, price: item.price, email: user?.email}
             // console.log(addCourse);
 
          axiosSecure.post(`/selected-class/${user?.email}`, addCourse)
