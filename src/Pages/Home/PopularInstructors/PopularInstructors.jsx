@@ -8,13 +8,13 @@ const PopularInstructors = () => {
     const { data: instructors = [] } = useQuery({
         queryKey: ['instructors'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/popular-instructors')
+            const res = await axios.get('http://localhost:5000/instructors')
             return res.data;
         }
     })
-    console.log(instructors);
+  
     return (
-        <div className="min-h-[80vh] mt-28">
+        <div className="min-h-[80vh] mt-16">
             <div className=" px-28 py-28">
                 <div className="text-center">
                     <p className="uppercase text-blue-500 font-bold">OUR POPULAR</p>
