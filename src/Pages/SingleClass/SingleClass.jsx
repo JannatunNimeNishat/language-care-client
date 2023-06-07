@@ -8,7 +8,7 @@ const SingleClass = ({ item }) => {
     console.log(item);
     const { img, class_name, duration, price,  total_enrolled_students } = item
     return (
-        // <div className="card w-96 bg-base-100 shadow-xl">
+    
         <div className="card bg-base-100 shadow-xl">
 
             <figure className='overflow-hidden h-1/2'><img className='object-cover ' src={img} alt="Shoes" /></figure>
@@ -17,10 +17,6 @@ const SingleClass = ({ item }) => {
 
             <h2 className="card-title text-blue-500">${price}</h2>
 
-               {/*  <div className="flex w-full items-center border">
-                    <h2 className="card-title text-blue-500">${price}</h2>
-                    <p><FaStar className="inline"/>{rating}</p>
-                </div> */}
 
                 <p className='text-xl font-semibold mt-3'>Learn <span className='text-blue-500'>{class_name}</span></p>
                 <div className='flex'>

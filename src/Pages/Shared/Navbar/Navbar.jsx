@@ -4,18 +4,21 @@ import logo from '../../../assets/logo.jpg'
 import { useContext } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
+import { FaShoppingCart } from 'react-icons/fa';
+import useSelectedClass from '../../../hooks/useSelectedClass';
+
 const Navbar = () => {
-    const { user,logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+   const [selectedClass] = useSelectedClass()
 
-
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
         logOut()
-        .then(()=>{
+            .then(() => {
 
-        })
-        .catch((error)=>{
-            console.log(error.message);
-        })
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
 
     const navItems = <>
@@ -27,6 +30,13 @@ const Navbar = () => {
         </li>
         <li>
             <NavLink to='/classes' className={({ isActive }) => isActive ? 'active' : ''}>Classes</NavLink>
+        </li>
+        <li>
+            <button className="">
+                <div className="badge ">
+                <FaShoppingCart className='h-5 w-5 mr-3'/>
+                    {selectedClass?.length || 0}</div>
+            </button>
         </li>
         {
             user && <>
@@ -71,12 +81,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {/* <a className="btn">Button</a> */}
-               {
-                user ? 
-                <NavLink onClick={handleLogOut} to='/login' className="btn ">Logout</NavLink>
-                :
-                <NavLink to='/login' className="btn ">Login</NavLink>
-               }
+                {
+                    user ?
+                        <NavLink onClick={handleLogOut} to='/login' className="btn ">Logout</NavLink>
+                        :
+                        <NavLink to='/login' className="btn ">Login</NavLink>
+                }
             </div>
         </div>
     );

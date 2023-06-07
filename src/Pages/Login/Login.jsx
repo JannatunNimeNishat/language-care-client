@@ -17,7 +17,7 @@ const Login = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/';
-    console.log(from);
+    //console.log(from);
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
@@ -33,7 +33,7 @@ const Login = () => {
     };
 
     return (
-        <div className='lg:h-[calc(100vh-76px)] md:flex justify-center items-center mt-5'>
+        <div className=' md:flex justify-center items-center '>
 
             <div className="lg:w-1/2 ">
                 <Lottie className="h-full" animationData={loginAnimation} loop={true} />;

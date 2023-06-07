@@ -1,13 +1,16 @@
 import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
 const SocialLogin = () => {
     const {googleSignIn} = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
+
     const handleGoogleSignIn = ()=>{
         googleSignIn()
         .then((result)=>{
@@ -18,7 +21,7 @@ const SocialLogin = () => {
             .then(result =>{
                 console.log(result.data);
             })
-            navigate('/')
+            navigate(from, { replace: true })
         })
         .catch(error=>{
             console.log(error.message);
