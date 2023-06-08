@@ -6,13 +6,15 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useSelectedClass from "../../hooks/useSelectedClass";
+import useCheckRole from "../../hooks/useCheckRole";
 
 
 
 const SingleClassCard = ({ item }) => {
     const { img, class_name, duration, price, total_enrolled_students, instructor_name, available_seats } = item
     const { user } = useContext(AuthContext)
-
+    const [role] = useCheckRole()
+    console.log(role);
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -79,7 +81,7 @@ const SingleClassCard = ({ item }) => {
                     </div>
                     <div className="card-actions justify-start mt-4">
                         <button onClick={() => handleSelectCourse(item)} className="btn text-blue-500 font-bold"
-                       disabled={available_seats === 0  ? true: false}
+                       disabled={available_seats === 0  || role === 'instructor' || role === 'admin'  ? true: false}
                         >Enroll Now
                             <FaArrowRight></FaArrowRight>
                         </button>
