@@ -26,7 +26,16 @@ const ManageAdminUsers = () => {
         })
     }
 
-
+    const handleMakeAdmin = (_id)=>{
+        console.log(_id);
+        axiosSecure.patch(`/make-admin/${_id}`)
+        .then(res =>{
+            console.log(res.data);
+           if(res.data.matchedCount>0){
+               refetch()
+           }
+        })
+    }
     
     return (
         <div className="min-h-screen w-full px-10 pt-10">
@@ -87,7 +96,7 @@ const ManageAdminUsers = () => {
 
                                 </td>
                                 <td>
-                                    <button  className="btn btn-ghost bg-red-500 hover:bg-red-700 text-white btn-xs"
+                                    <button onClick={()=> handleMakeAdmin(singleUser._id)}  className="btn btn-ghost bg-red-500 hover:bg-red-700 text-white btn-xs"
                                         disabled={singleUser.role === 'admin' ? true : false}
                                     >
                                         Make admin
