@@ -17,6 +17,7 @@ import AddaClass from "../Pages/Dashboard/AddaClass/AddaClass";
 import InstructorClasses from "../Pages/Dashboard/Dashboard/InstructorClasses/InstructorClasses";
 import AdminRoute from "./AdminRoute";
 import ManageAdminClasses from "../Pages/Dashboard/ManageAdminClasses/ManageAdminClasses";
+import GiveFeedback from "../Pages/Dashboard/ManageAdminClasses/GiveFeedback";
 
 const router = createBrowserRouter([
     {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
             {
                 path:'manageadminclasses',
                 element:<AdminRoute><ManageAdminClasses></ManageAdminClasses></AdminRoute>
+            },
+            {
+                path:'givefeedback/:id',
+                element:<AdminRoute><GiveFeedback></GiveFeedback></AdminRoute>
             }
 
         ]

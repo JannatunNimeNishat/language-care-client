@@ -1,9 +1,35 @@
+import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useGetAllClasses from "../../../hooks/useGetAllClasses";
 
 
 const ManageAdminClasses = () => {
-    const [allClasses] = useGetAllClasses()
-    console.log(allClasses);
+    const [allClasses, ,refetch] = useGetAllClasses()
+    // console.log(allClasses);
+    const [axiosSecure] = useAxiosSecure()
+
+    const handleApproved = (_id) =>{
+        console.log(_id);
+        axiosSecure.patch(`/make-approved/${_id}`)
+        .then(res =>{
+            console.log(res.data);
+           if(res.data.matchedCount>0){
+               refetch()
+           }
+        })
+    }
+    const handleDenied = (_id) =>{
+        console.log(_id);
+        axiosSecure.patch(`/make-denied/${_id}`)
+        .then(res =>{
+            console.log(res.data);
+           if(res.data.matchedCount>0){
+               refetch()
+           }
+        })
+    }
+
+
     return (
         <div className="min-h-screen w-full px-10 pt-10">
         
@@ -28,6 +54,7 @@ const ManageAdminClasses = () => {
                         <th>Price</th>
                         <th>Status</th>
                         <th></th>
+                       
                     </tr>
                 </thead>
                 <tbody>
@@ -71,22 +98,27 @@ const ManageAdminClasses = () => {
 
                             </td>
                             <td>
-                            <button  className="btn btn-ghost bg-green-500 hover:bg-green-700 text-white btn-xs">
+                            <button onClick={()=>handleApproved(singleClass._id)}  className="btn btn-ghost bg-green-500 hover:bg-green-700 text-white btn-xs"
+                            disabled={singleClass.status !== 'pending' ? true : false}
+                            
+                            >
                                    Approved
                                 </button>
 
                             </td>
                             <td>
-                            <button  className="btn btn-ghost bg-red-500 hover:bg-red-700 text-white btn-xs">
+                            <button  onClick={()=> handleDenied(singleClass._id)} className="btn btn-ghost bg-red-500 hover:bg-red-700 text-white btn-xs"
+                            disabled={singleClass.status !== 'pending' ? true : false}
+                            >
                                    Deny
                                 </button>
 
                             </td>
                            
                             <th>
-                                <button  className="btn btn-ghost bg-black text-white btn-xs">
+                                <Link to={`/dashboard/givefeedback/${singleClass._id}`}   className="btn btn-ghost bg-black text-white btn-xs">
                                    Feedback
-                                </button>
+                                </Link>
                             </th>
                         </tr>)
                     }
