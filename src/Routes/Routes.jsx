@@ -14,6 +14,7 @@ import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses/MySelectedCl
 import StudentsRoute from "./StudentsRoute";
 import InstructorRoute from "./InstructorRoute";
 import AddaClass from "../Pages/Dashboard/AddaClass/AddaClass";
+import InstructorClasses from "../Pages/Dashboard/Dashboard/InstructorClasses/InstructorClasses";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
             {
                 path:'addaclass',
                 element:<InstructorRoute><AddaClass></AddaClass></InstructorRoute>
+            },
+            {
+                path:'instructor-classes',
+                element:<InstructorRoute><InstructorClasses></InstructorClasses></InstructorRoute>
             },
             {
                 path:'adminhome',

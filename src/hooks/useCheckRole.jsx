@@ -7,8 +7,10 @@ const useCheckRole = () =>{
 
     const {user,loading} = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
-
-    const {data: role,isLoading:roleLoading} = useQuery({
+    /* if(!user){
+        return 'user'
+    } */
+    const {data: role = 'user',isLoading:roleLoading} = useQuery({
         queryKey:['role', user?.email],
         enabled:!loading,
         queryFn: async ()=>{

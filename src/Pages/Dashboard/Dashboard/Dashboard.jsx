@@ -35,7 +35,7 @@ const Dashboard = () => {
                     role === 'instructor' && <>
                     <li><Link to='/dashboard/instructorhome'>Instructor Home</Link></li>
                     <li><Link to='/dashboard/addaclass'>Add a Class</Link></li>
-                    <li><Link to='#'>My Classes</Link></li>
+                    <li><Link to='/dashboard/instructor-classes'>My Classes</Link></li>
                     </>
                    }
                    {
