@@ -4,10 +4,10 @@ import useCheckRole from "../../../hooks/useCheckRole";
 
 const Dashboard = () => {
     const [role, roleLoading] = useCheckRole()
-    console.log('role',role);
-    if(roleLoading){
+    // console.log('role',role);
+    /* if(roleLoading){
         return <p>loading</p>
-    }
+    } */
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -46,7 +46,13 @@ const Dashboard = () => {
                     <li><Link to='#'>Manage Users</Link></li>
                     </>
                    }
+
+                    <div className="divider"></div> 
+
                     <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/instructors'>Instructors</Link></li>
+                    <li><Link to='/classes'>Classes</Link></li>
+                
 
 
                 </ul>

@@ -6,10 +6,13 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 
 import { FaShoppingCart } from 'react-icons/fa';
 import useSelectedClass from '../../../hooks/useSelectedClass';
+import useCheckRole from '../../../hooks/useCheckRole';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-   const [selectedClass] = useSelectedClass()
+   const [selectedClass] = useSelectedClass();
+
+   const [role] = useCheckRole()
 
     const handleLogOut = () => {
         logOut()
@@ -44,7 +47,9 @@ const Navbar = () => {
                     <NavLink to='/classes' className={({ isActive }) => isActive ? 'active' : ''}>img</NavLink>
                 </li>
                 <li>
-                    <NavLink to={`/dashboard`} className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
+                    <NavLink to={`/dashboard`} className={({ isActive }) => isActive ? 'active' : ''}>
+                    
+                    Dashboard</NavLink>
                 </li>
             </>
         }

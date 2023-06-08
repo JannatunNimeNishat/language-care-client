@@ -8,7 +8,7 @@ const MySelectedClasses = () => {
     const [selectedClass, refetch] = useSelectedClass()
     console.log(selectedClass);
     const [axiosSecure] = useAxiosSecure()
-
+    const total = selectedClass.reduce((sum,item)=> sum+item.price, 0)
     const handleDeleteSelectedClass = (_id) => {
         
         Swal.fire({
@@ -41,7 +41,7 @@ const MySelectedClasses = () => {
         <div className="min-h-screen w-full px-10 pt-10">
             <div className="flex items-center justify-evenly">
                 <h3 className="text-xl font-semibold">Total selected classes: {selectedClass.length}</h3>
-                <p>Total cost: $10</p>
+                <p>Total cost: ${total}</p>
                 <button className="btn btn-xs bg-blue-500 text-white">PAY</button>
             </div>
 

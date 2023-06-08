@@ -11,6 +11,7 @@ import StudentHome from "../Pages/Dashboard/StudentHome/StudentHome";
 import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
 import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses/MySelectedClasses";
+import StudentsRoute from "./StudentsRoute";
 
 const router = createBrowserRouter([
     {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'selectedclasses',
-                element:<MySelectedClasses></MySelectedClasses>
+                element:<StudentsRoute><MySelectedClasses></MySelectedClasses></StudentsRoute>
             },
             {
                 path:'instructorhome',
