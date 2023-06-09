@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const MySelectedClasses = () => {
     const [selectedClass, refetch] = useSelectedClass()
-    console.log(selectedClass);
+    //console.log(selectedClass);
     const [axiosSecure] = useAxiosSecure()
     const total = selectedClass.reduce((sum,item)=> sum+item.price, 0)
 

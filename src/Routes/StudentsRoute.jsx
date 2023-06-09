@@ -8,7 +8,7 @@ const StudentsRoute = ({children}) => {
     const {user,loading} = useContext(AuthContext)
     const [role,roleLoading] = useCheckRole()
     // console.log('role:',role);
-    console.log('user loading:',loading);
+  //  console.log('user loading:',loading);
     const location = useLocation()
     if(loading || roleLoading){
         return <h3 className="text-4xl">Loading</h3>
