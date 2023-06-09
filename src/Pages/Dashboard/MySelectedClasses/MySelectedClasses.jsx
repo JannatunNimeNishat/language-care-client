@@ -2,6 +2,7 @@ import { FaTrash } from "react-icons/fa";
 import useSelectedClass from "../../../hooks/useSelectedClass";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const MySelectedClasses = () => {
@@ -9,6 +10,8 @@ const MySelectedClasses = () => {
     console.log(selectedClass);
     const [axiosSecure] = useAxiosSecure()
     const total = selectedClass.reduce((sum,item)=> sum+item.price, 0)
+
+    // delete selected classes
     const handleDeleteSelectedClass = (_id) => {
         
         Swal.fire({
@@ -42,7 +45,7 @@ const MySelectedClasses = () => {
             <div className="flex items-center justify-evenly">
                 <h3 className="text-xl font-semibold">Total selected classes: {selectedClass.length}</h3>
                 <p>Total cost: ${total}</p>
-                <button className="btn btn-xs bg-blue-500 text-white">PAY</button>
+                <Link to='/dashboard/payment' className="btn btn-xs bg-blue-500 text-white">PAY</Link>
             </div>
 
             {/* table */}

@@ -6,13 +6,14 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 
 import { FaShoppingCart } from 'react-icons/fa';
 import useSelectedClass from '../../../hooks/useSelectedClass';
-import useCheckRole from '../../../hooks/useCheckRole';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-   const [selectedClass] = useSelectedClass();
+    const [selectedClass] = useSelectedClass();
 
-   const [role] = useCheckRole()
+    // const [role] = useCheckRole()
+
+     console.log(selectedClass);
 
     const handleLogOut = () => {
         logOut()
@@ -34,22 +35,31 @@ const Navbar = () => {
         <li>
             <NavLink to='/classes' className={({ isActive }) => isActive ? 'active' : ''}>Classes</NavLink>
         </li>
-        <li>
+       {/*  <li>
             <button className="">
                 <div className="badge ">
-                <FaShoppingCart className='h-5 w-5 mr-3'/>
-                    {selectedClass?.length || 0}</div>
+                    <FaShoppingCart className='h-5 w-5 mr-3' />
+                    
+                {  {selectedClass?.length || 0}</div> }
             </button>
-        </li>
+        </li> */}
         {
             user && <>
+                <li>
+                    <button className="">
+                        <div className="badge ">
+                            <FaShoppingCart className='h-5 w-5 mr-3' />
+                            {/* {0}</div> */}
+                         {selectedClass?.length || 0}</div> 
+                    </button>
+                </li>
                 <li>
                     <NavLink to='/classes' className={({ isActive }) => isActive ? 'active' : ''}>img</NavLink>
                 </li>
                 <li>
                     <NavLink to={`/dashboard`} className={({ isActive }) => isActive ? 'active' : ''}>
-                    
-                    Dashboard</NavLink>
+
+                        Dashboard</NavLink>
                 </li>
             </>
         }
