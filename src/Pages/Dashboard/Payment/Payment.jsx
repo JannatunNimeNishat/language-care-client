@@ -9,11 +9,11 @@ const Payment = () => {
     const [selectedClass] = useSelectedClass()
     const total = selectedClass.reduce((sum,item)=> sum + item.price,0)
     const price = parseFloat(total.toFixed(2))
-    console.log(price);
+    //console.log(price);
     return (
        <div className="w-full px-40">
         <Elements stripe={stripePromise}>
-            <CheckOutForm price ={price}></CheckOutForm>
+            <CheckOutForm selectedClass={selectedClass} price ={price}></CheckOutForm>
        </Elements>
        </div>
     );
