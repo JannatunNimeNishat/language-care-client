@@ -20,6 +20,7 @@ import ManageAdminClasses from "../Pages/Dashboard/ManageAdminClasses/ManageAdmi
 import GiveFeedback from "../Pages/Dashboard/ManageAdminClasses/GiveFeedback";
 import ManageAdminUsers from "../Pages/Dashboard/ManageAdminUsers/ManageAdminUsers";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses/EnrolledClasses";
 
 const router = createBrowserRouter([
     {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
             {
                 path:'payment',
                 element:<StudentsRoute><Payment></Payment></StudentsRoute>
+            },
+            {
+                path:'enrolledclasses',
+                element:<StudentsRoute><EnrolledClasses></EnrolledClasses></StudentsRoute>
             },
             // instructors route
             {
