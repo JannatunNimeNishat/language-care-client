@@ -14,7 +14,7 @@ const EnrolledClasses = () => {
         queryKey:['enrolledClasses', user?.email],
         enabled:!loading,
         queryFn: async ()=>{
-            const res = await axiosSecure('/enrolledClasses')
+            const res = await axiosSecure(`/enrolledClasses/${user?.email}`)
            return res.data;
         }
     })

@@ -30,7 +30,7 @@ const Dashboard = () => {
 
                     <li><Link to='/dashboard/enrolledclasses'>My Enrolled Class</Link></li>
                     
-                    <li><Link to='#'>Payment History Page</Link></li>
+                    <li><Link to='/dashboard/paymnethistory'>Payment History Page</Link></li>
                     </>
                    }
                    {
