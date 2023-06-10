@@ -3,6 +3,7 @@ import useSelectedClass from "../../../hooks/useSelectedClass";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const MySelectedClasses = () => {
@@ -41,6 +42,11 @@ const MySelectedClasses = () => {
 
     }
     return (
+        <>
+        <Helmet>
+        <title>LanguageCare | Selected Classes</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
         <div className="min-h-screen w-full px-10 pt-10">
             <div className="flex items-center justify-evenly">
                 <h3 className="text-xl font-semibold">Total selected classes: {selectedClass.length}</h3>
@@ -106,6 +112,7 @@ const MySelectedClasses = () => {
             </div>
 
         </div>
+        </>
     );
 };
 

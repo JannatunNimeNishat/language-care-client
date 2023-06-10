@@ -1,13 +1,20 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const InstructorHome = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     return (
-        <div>
-            <h3 className="text-4xl ">Welcome <span className="font-bold text-blue-500">{user?.displayName}</span></h3>
-        </div>
+        <>
+            <Helmet>
+                <title>LanguageCare | Instructor Home</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
+            <div>
+                <h3 className="text-4xl ">Welcome <span className="font-bold text-blue-500">{user?.displayName}</span></h3>
+            </div>
+        </>
     );
 };
 

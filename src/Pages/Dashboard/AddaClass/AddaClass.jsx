@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AddaClass = () => {
 
@@ -36,6 +37,12 @@ const AddaClass = () => {
     // console.log(formData.get("img"))
 
     return (
+        <>
+         <Helmet>
+                <title>LanguageCare | Add a class</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
+        
         <div className="min-h-screen w-full px-20 py-10">
 
             <h3 className="text-3xl font-semibold">Add a class: </h3>
@@ -145,6 +152,7 @@ const AddaClass = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

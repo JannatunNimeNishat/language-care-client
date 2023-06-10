@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 
 const ManageAdminUsers = () => {
@@ -38,6 +39,12 @@ const ManageAdminUsers = () => {
     }
     
     return (
+        <>
+         <Helmet>
+                <title>LanguageCare | Manage Users</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
+        
         <div className="min-h-screen w-full px-10 pt-10">
             <h3 className="text-xl font-semibold">Total Users: {allUsers?.length}</h3>
             {/* table */}
@@ -115,6 +122,7 @@ const ManageAdminUsers = () => {
             </div>
 
         </div>
+        </>
     );
 };
 

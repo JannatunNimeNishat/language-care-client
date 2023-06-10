@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useGetAllClasses from "../../../hooks/useGetAllClasses";
+import { Helmet } from "react-helmet-async";
 
 
 const ManageAdminClasses = () => {
@@ -31,6 +32,14 @@ const ManageAdminClasses = () => {
 
 
     return (
+        <>
+        
+        <Helmet>
+                <title>LanguageCare | Manage Classes</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
+
+
         <div className="min-h-screen w-full px-10 pt-10">
         
             <h3 className="text-xl font-semibold">Total classes:  {allClasses?.length}</h3>
@@ -130,6 +139,7 @@ const ManageAdminClasses = () => {
         </div>
 
     </div>
+        </>
     );
 };
 
