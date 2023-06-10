@@ -15,7 +15,7 @@ const useApprovedClass = () => {
             return res.data;
         }
     })
-    return [approvedClasses]
+    return [approvedClasses,isApprovedClassesLoading]
 }
 
 export default useApprovedClass

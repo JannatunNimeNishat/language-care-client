@@ -1,18 +1,19 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import Navbar from "../Pages/Shared/Navbar/Navbar";
 import Footer from "../Pages/Shared/Footer/Footer";
+import Loading from "../Pages/Loading/Loading";
 
 
 const Main = () => {
-    const location = useLocation()
-    const notShow = location.pathname.includes('/login')
-    // console.log(location.pathname        );
+    const navigation = useNavigation()
+
     return (
         <div>
-            {
-               /*  notShow || <Navbar></Navbar> */
-            }
+
             <Navbar></Navbar>
+            {
+                navigation.state === 'loading' ? <Loading/> : ''
+            }
             <Outlet></Outlet>
             <Footer></Footer>
 

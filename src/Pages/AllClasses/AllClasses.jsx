@@ -3,19 +3,23 @@ import axios from "axios"; */
 import SingleClassCard from "./SingleClassCard";
 import useApprovedClass from "../../hooks/useApprovedClass";
 import { Helmet } from "react-helmet-async";
+import Loading from "../Loading/Loading";
 
 
 
 const AllClasses = () => {
 
-    const [approvedClasses] = useApprovedClass()
-
+    const [approvedClasses, isApprovedClassesLoading] = useApprovedClass()
+    if(isApprovedClassesLoading){
+        return <Loading/>
+    }
     return (
         <>
             <Helmet>
                 <title>LanguageCare | Classes</title>
                 <link rel="canonical" href="https://www.tacobell.com/" />
             </Helmet>
+
             <div className="px-20 py-10">
                 {/* search */}
                 <div className="form-control  w-1/2 mx-auto">

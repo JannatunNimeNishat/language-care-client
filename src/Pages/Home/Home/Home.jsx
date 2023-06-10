@@ -7,7 +7,9 @@ import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import Testimonial from "../Testimonial/Testimonial";
 
 
+
 const Home = () => {
+ 
     return (
        <>
        <Helmet>

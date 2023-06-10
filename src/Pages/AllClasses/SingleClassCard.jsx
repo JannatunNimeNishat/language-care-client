@@ -7,19 +7,26 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useSelectedClass from "../../hooks/useSelectedClass";
 import useCheckRole from "../../hooks/useCheckRole";
+import Loading from "../Loading/Loading";
 
 
 
 const SingleClassCard = ({ item }) => {
     const { img, class_name, duration, price, total_enrolled_students, instructor_name, available_seats } = item
     const { user } = useContext(AuthContext)
-    const [role] = useCheckRole()
-    console.log(role);
+    const [role,roleLoading] = useCheckRole()
+    
     const navigate = useNavigate()
     const location = useLocation()
 
     const [axiosSecure] = useAxiosSecure()
    const [, refetch] = useSelectedClass()
+
+   if(roleLoading){
+    return <Loading></Loading>
+   }
+
+
     const handleSelectCourse = (item) => {
         console.log('rached');
         if (!user) {

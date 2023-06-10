@@ -5,9 +5,15 @@ import { FaHome,FaUsers } from "react-icons/fa";
 import { MdOutlineClass, MdPayment } from "react-icons/md";
 
 import { SiGoogleclassroom } from "react-icons/si";
+import Loading from "../../Loading/Loading";
 
 const Dashboard = () => {
     const [role, roleLoading] = useCheckRole()
+
+    if(roleLoading){
+        return <Loading></Loading>
+    }
+
 
     return (
         <div className="drawer lg:drawer-open ">

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import LgButton from "../../../components/Buttons/LgButton";
 import SingleClass from "../../SingleClass/SingleClass";
+import Loading from "../../Loading/Loading";
 
 
 const PopularClasses = () => {
@@ -14,7 +15,9 @@ const PopularClasses = () => {
         }
     })
 
-   
+   if(isClassesLoading){
+    return <Loading></Loading>
+   }
 
     return (
         <div className="mt-20 min-h-[100vh] bg-[#fff6f4] ">
