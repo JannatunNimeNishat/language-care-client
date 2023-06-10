@@ -10,6 +10,11 @@
 .active{
     @apply text-blue-500 font-bold bg-white
 }
+
+.active-dashboard-route{
+    @apply text-red-500 bg-white
+}
+
 .deactive{
     @apply text-black 
 }
@@ -17,3 +22,4 @@
 .primary-bg-color{
     @apply bg-blue-500 hover:bg-blue-800
 }
+
