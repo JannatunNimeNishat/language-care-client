@@ -22,13 +22,14 @@ import ManageAdminUsers from "../Pages/Dashboard/ManageAdminUsers/ManageAdminUse
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses/EnrolledClasses";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
-        
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
