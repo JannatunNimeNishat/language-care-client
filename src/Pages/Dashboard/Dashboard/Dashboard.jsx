@@ -1,10 +1,14 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useCheckRole from "../../../hooks/useCheckRole";
 
+import { FaHome,FaUsers } from "react-icons/fa";
+import { MdOutlineClass, MdPayment } from "react-icons/md";
+
+import { SiGoogleclassroom } from "react-icons/si";
 
 const Dashboard = () => {
     const [role, roleLoading] = useCheckRole()
-    
+
     return (
         <div className="drawer lg:drawer-open ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -19,29 +23,55 @@ const Dashboard = () => {
                 <ul className="menu p-4 w-80 h-full   bg-blue-500 text-white font-semibold">
 
                     {/* Sidebar content here */}
-                    {/* <NavLink to='/' className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink> */}
                     {
                         role === 'student' && <>
-                            <li><NavLink to='/dashboard/studenthome' className={({ isActive }) => isActive ? 'active' : ''}  >Student Home</NavLink></li>
-                            <li><NavLink to='/dashboard/selectedclasses' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>My Selected Classes</NavLink></li>
+                            <li><NavLink to='/dashboard/studenthome' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}  >
+                            <FaHome className="h-5 w-5"/>
 
-                            <li><NavLink to='/dashboard/enrolledclasses' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>My Enrolled Class</NavLink></li>
+                                Student Home
+                                </NavLink></li>
+                            <li><NavLink to='/dashboard/selectedclasses' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                            <MdOutlineClass className="h-5 w-5"/>
+                                My Selected Classes</NavLink></li>
 
-                            <li><NavLink to='/dashboard/paymnethistory' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>Payment History Page</NavLink></li>
+                            <li><NavLink to='/dashboard/enrolledclasses' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                                <SiGoogleclassroom className="h-5 w-5"/>
+                                My Enrolled Class
+                                </NavLink></li>
+
+                            <li><NavLink to='/dashboard/paymnethistory' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                                <MdPayment  className="h-5 w-5"/>
+                                Payment History Page</NavLink></li>
                         </>
                     }
                     {
                         role === 'instructor' && <>
-                            <li><NavLink to='/dashboard/instructorhome' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>Instructor Home</NavLink></li>
-                            <li><NavLink to='/dashboard/addaclass' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>Add a Class</NavLink></li>
-                            <li><NavLink to='/dashboard/instructor-classes' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>My Classes</NavLink></li>
+                            <li><NavLink to='/dashboard/instructorhome' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                            <FaHome className="h-5 w-5"/>
+                                Instructor Home</NavLink></li>
+                            <li><NavLink to='/dashboard/addaclass' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                            <MdOutlineClass className="h-5 w-5"/>
+                                Add a Class</NavLink></li>
+                            <li><NavLink to='/dashboard/instructor-classes' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                            <SiGoogleclassroom className="h-5 w-5"/>
+                                My Classes</NavLink></li>
                         </>
                     }
                     {
                         role === 'admin' && <>
-                            <li><NavLink to='/dashboard/adminhome' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>Admin Home</NavLink></li>
-                            <li><NavLink to='/dashboard/manageadminclasses' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>Manage Classes</NavLink></li>
-                            <li><NavLink to='/dashboard/manageadminusers' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>Manage Users</NavLink></li>
+                            <li><NavLink to='/dashboard/adminhome' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                                <FaHome className="h-5 w-5"/>
+                                Admin Home
+                            </NavLink></li>
+                            <li><NavLink to='/dashboard/manageadminclasses' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                               <MdOutlineClass className="h-5 w-5"/>
+                                Manage Classes
+                                
+                                </NavLink></li>
+                            <li><NavLink to='/dashboard/manageadminusers' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                            <FaUsers className="h-5 w-5"/>
+                                Manage Users
+                                </NavLink></li>
                         </>
                     }
 
