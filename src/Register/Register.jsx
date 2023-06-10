@@ -32,7 +32,7 @@ const Register = () => {
                         axios.post(`http://localhost:5000/create-user/${data.email}`, newUser)
                             .then(res => {
                                 console.log('new user',res.data);
-                                // navigate('/')
+                                navigate('/')
                             })
 
                     })

@@ -2,24 +2,13 @@
 import axios from "axios"; */
 import SingleClassCard from "./SingleClassCard";
 import useApprovedClass from "../../hooks/useApprovedClass";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+
 
 
 const AllClasses = () => {
-
-    
-
-   /*  const { data: approvedClasses = [], isLoading: isApprovedClassesLoading, refetch } = useQuery({
-        queryKey: ['approvedClasses'],
-        queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/approved-classes')
-            return res.data;
-        }
-    }) */
+ 
      const [approvedClasses] = useApprovedClass()
-    // console.log(approvedClasses);
-
+   
     return (
         <div className="px-20 py-10">
             {/* search */}
