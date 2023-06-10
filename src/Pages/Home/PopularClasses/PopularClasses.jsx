@@ -18,11 +18,11 @@ const PopularClasses = () => {
 
     return (
         <div className="mt-20 min-h-[100vh] bg-[#fff6f4] ">
-            <div className=" px-28 py-28">
-                <div className="flex justify-between items-center">
-                    <div>
+            <div className=" px-10  py-10 lg:px-28 lg:py-28">
+                <div className="lg:flex justify-between items-center">
+                    <div className="space-y-3 lg:space-y-0 mb-5 lg:mb-0">
                         <p className="uppercase text-blue-500 font-bold">OUR CLASSES</p>
-                        <h3 className="text-4xl font-bold mt-3">Popular Classes</h3>
+                        <h3 className="text-4xl font-bold  lg:mt-3">Popular Classes</h3>
                     </div>
                     <LgButton btn_text='Browse all classes'></LgButton>
 

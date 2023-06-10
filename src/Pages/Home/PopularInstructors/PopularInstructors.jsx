@@ -14,8 +14,8 @@ const PopularInstructors = () => {
     })
   
     return (
-        <div className="min-h-[80vh] mt-16">
-            <div className=" px-28 py-28">
+        <div className="min-h-[80vh] lg:mt-16">
+            <div className=" px-10 py-10 lg:px-28 lg:py-28">
                 <div className="text-center">
                     <p className="uppercase text-blue-500 font-bold">OUR POPULAR</p>
                     <h3 className="text-4xl font-bold mt-3">Instructors</h3>

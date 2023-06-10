@@ -5,7 +5,7 @@ const SingleInstructor = ({ instructor }) => {
     console.log(instructor);
     const { name, img } = instructor
     return (
-        <div className="card h-[400px] card-compact bg-base-100 shadow-xl relative hover:opacity-80 transition duration-200">
+        <div className="card lg:h-[400px] card-compact bg-base-100 shadow-xl relative hover:opacity-80 transition duration-200">
             <figure className="h-[300px] "><img className="w-full h-full " src={img} alt="Shoes" /></figure>
             <div className="card-body h-[100] flex justify-center items-center w-full border">
                 <h2 className="card-title text-center ">{name}</h2>

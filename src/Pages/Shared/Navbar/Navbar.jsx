@@ -9,6 +9,7 @@ import useSelectedClass from '../../../hooks/useSelectedClass';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    
     const [selectedClass] = useSelectedClass();
 
     // const [role] = useCheckRole()
