@@ -8,7 +8,7 @@ const Features = () => {
     return (
         <div className="mt-20 bg-[#f7f0ea]  min-h-screen">
 
-            <div className="my-container lg:flex gap-3 py-20 px-3 lg:px-0">
+            <div className="my-container lg:flex gap-3 py-32 px-3 lg:px-0">
                 <div className='lg:w-1/2'>
                     <div>
                         <p className="uppercase text-blue-500 font-bold">WHY CHOOSE US </p>
@@ -37,7 +37,7 @@ const Features = () => {
                             <RiBookLine className='h-12 w-12 text-[#f86f03]  mx-auto' />
                             <div className='mt-3'>
                                 <h3 className='text-xl font-semibold'>Flexible Learning</h3>
-                                <p>We don't enforce anything on our students. Our class is always light and casual </p>
+                                <p>We do not enforce anything on our students. Our class is always light and casual </p>
                             </div>
                         </div>
                          {/* 4th */}
