@@ -18,7 +18,7 @@ const Features = () => {
                     <div className='mt-10 grid grid-cols-1 text-center lg:text-left lg:grid-cols-2 gap-3 space-y-3'>
                          {/* 1st */}
                         <div className='w-4/5'>
-                            <FaLaptop className='h-12 w-12 text-[#f86f03] mx-auto' />
+                            <FaLaptop className='h-12 w-12 text-[#f86f03] mx-auto lg:mx-0' />
                             <div className='mt-3'>
                                 <h3 className='text-xl font-semibold'>Flexible Classes</h3>
                                 <p>You can make your own  schedule. We are have flexible time schedule</p>
@@ -26,7 +26,7 @@ const Features = () => {
                         </div>
                          {/* 2nd */}
                         <div className='w-4/5'>
-                            <RiBaseStationLine className='h-12 w-12 text-[#f86f03]  mx-auto' />
+                            <RiBaseStationLine className='h-12 w-12 text-[#f86f03]  mx-auto  lg:mx-0' />
                             <div className='mt-3'>
                                 <h3 className='text-xl font-semibold'>Online Mode</h3>
                                 <p>Full course will be held on online. <br /> You can attend from anywhere in <br /> the world.</p>
@@ -34,7 +34,7 @@ const Features = () => {
                         </div>
                          {/* 3rd */}
                         <div className='w-4/5'>
-                            <RiBookLine className='h-12 w-12 text-[#f86f03]  mx-auto' />
+                            <RiBookLine className='h-12 w-12 text-[#f86f03]  mx-auto lg:mx-0' />
                             <div className='mt-3'>
                                 <h3 className='text-xl font-semibold'>Flexible Learning</h3>
                                 <p>We do not enforce anything on our students. Our class is always light and casual </p>
@@ -42,7 +42,7 @@ const Features = () => {
                         </div>
                          {/* 4th */}
                         <div className='w-4/5'>
-                            <BiSupport className='h-12 w-12 text-[#f86f03]  mx-auto' />
+                            <BiSupport className='h-12 w-12 text-[#f86f03]  mx-auto lg:mx-0' />
                             <div className='mt-3'>
                                 <h3 className='text-xl font-semibold'>Educator Support</h3>
                                 <p>You can contact us anytime. We give 24/7 online support </p>
