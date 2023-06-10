@@ -5,7 +5,7 @@ import { FaArrowRight, FaClock } from "react-icons/fa";
 import { BsPeople } from "react-icons/bs";
 
 const SingleClass = ({ item }) => {
-    console.log(item);
+    // console.log(item);
     const { img, class_name, duration, price,  total_enrolled_students } = item
     return (
     

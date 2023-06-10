@@ -8,7 +8,7 @@
 }
 
 .active{
-    @apply text-blue-500 font-semibold bg-white
+    @apply text-blue-500 font-bold bg-white
 }
 .deactive{
     @apply text-black 

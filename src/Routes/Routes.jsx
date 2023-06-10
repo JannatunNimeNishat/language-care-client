@@ -22,6 +22,7 @@ import ManageAdminUsers from "../Pages/Dashboard/ManageAdminUsers/ManageAdminUse
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses/EnrolledClasses";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
             {
                 path:'/classes',
                 element:<AllClasses></AllClasses>
+                // element:<PrivateRoute><AllClasses></AllClasses></PrivateRoute>
             }
 
         ]

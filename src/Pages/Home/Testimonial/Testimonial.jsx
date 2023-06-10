@@ -17,7 +17,7 @@ const Testimonial = () => {
                     <p className="uppercase text-blue-500 font-bold">TESTIMONIAL</p>
                     <h3 className="text-4xl font-bold mt-3">What Our Student Says</h3>
 
-                    <div className="lg:flex gap-5 mt-8 lg:h-[100vh] items-center ">
+                    <div className="lg:flex gap-10 mt-8 lg:h-[100vh] items-center ">
                         <div className="lg:w-1/2 ">
                             <img className='h-full w-full ' src={tesimonialImg2} alt="" />
                         </div>
@@ -57,9 +57,7 @@ const Testimonial = () => {
 
                                     <p className='mt-8 text-left text-xl'>I have just completed an online language course, and I am thrilled with the results. This course provided me with an excellent learning experience, and I would highly recommend it to anyone looking to learn a new language.
 
-                                        The course structure was well-organized and progressive. It started with the basics and gradually introduced more advanced concepts, ensuring a smooth learning curve. Each lesson was accompanied by interactive exercises, audio recordings, and engaging activities that helped reinforce what I had learned.
-
-                                        .</p>
+                                        The course structure was well-organized and progressive. It started with the basics and gradually introduced more advanced concepts, ensuring a smooth learning curve. Each lesson was accompanied by interactive exercises, audio recordings, and engaging activities that helped reinforce what I had learned.</p>
 
                                     <div className='flex items-center gap-3  mt-12'>
                                         <div className="">
@@ -76,10 +74,10 @@ const Testimonial = () => {
 
                                     <RiDoubleQuotesL className='h-16 w-16 text-blue-500' />
 
-                                    <p className='mt-8 text-left text-xl'>I recently tried an online language course, and unfortunately, it didn't live up to my expectations. While the course had some positive aspects, overall, I found it lacking in several areas.
+                                    <p className='mt-8 text-left text-xl'>I recently tried an online language course, and unfortunately, it did not live up to my expectations. While the course had some positive aspects, overall, I found it lacking in several areas.
 
-                                        Firstly, the course content was quite basic. It covered only the most fundamental vocabulary and grammar, and I was hoping for a more comprehensive approach. I felt that the course didn't provide enough depth or detail to truly grasp the language.
-                                        Another issue I encountered was the lack of interactive exercises and engaging activities..
+                                        Firstly, the course content was quite basic. It covered only the most fundamental vocabulary and grammar, and I was hoping for a more comprehensive approach. I felt that the course did not provide enough depth or detail to truly grasp the language.
+                                        Another issue I encountered was the lack of interactive exercises and engaging activities.
                                     </p>
 
                                     <div className='flex items-center gap-3  mt-12'>

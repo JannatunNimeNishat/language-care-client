@@ -2,7 +2,7 @@ import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 
 const SingleInstructor = ({ instructor }) => {
-    console.log(instructor);
+    // console.log(instructor);
     const { name, img } = instructor
     return (
         <div className="card lg:h-[400px] card-compact bg-base-100 shadow-xl relative hover:opacity-80 transition duration-200">
