@@ -9,7 +9,7 @@ const useApprovedClass = () => {
 
     const { data: approvedClasses = [], isLoading: isApprovedClassesLoading, refetch } = useQuery({
         queryKey: ['approvedClasses'],
-        // enabled:!loading && !!user,
+        enabled:!loading,
         queryFn: async () => {
             const res = await axios.get('http://localhost:5000/approved-classes')
             return res.data;

@@ -6,7 +6,7 @@ import featuresImg from '../../../assets/home/features.jpg'
 
 const Features = () => {
     return (
-        <div className="mt-20 bg-[#f7f0ea]  min-h-screen">
+        <div className=" bg-[#f7f0ea]  min-h-screen">
 
             <div className="my-container lg:flex gap-3 py-32 px-3 lg:px-0">
                 <div className='lg:w-1/2'>

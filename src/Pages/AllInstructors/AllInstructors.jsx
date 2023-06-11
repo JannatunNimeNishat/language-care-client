@@ -23,7 +23,7 @@ const AllInstructors = () => {
         <title>LanguageCare | Instructors</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
-        <div>
+        <div className=" pt-28">
             {
                 instructors?.map(instructor =><SingleInstructorCard key={instructor._id}
                 instructor={instructor}

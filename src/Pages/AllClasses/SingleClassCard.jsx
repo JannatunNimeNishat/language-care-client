@@ -14,7 +14,7 @@ import Loading from "../Loading/Loading";
 const SingleClassCard = ({ item }) => {
     const { img, class_name, duration, price, total_enrolled_students, instructor_name, available_seats } = item
     const { user } = useContext(AuthContext)
-    const [role,roleLoading] = useCheckRole()
+    const [role] = useCheckRole()
     
     const navigate = useNavigate()
     const location = useLocation()
@@ -22,10 +22,10 @@ const SingleClassCard = ({ item }) => {
     const [axiosSecure] = useAxiosSecure()
    const [, refetch] = useSelectedClass()
 
-   if(roleLoading){
+ /*   if(roleLoading){
     return <Loading></Loading>
    }
-
+ */
 
     const handleSelectCourse = (item) => {
         console.log('rached');

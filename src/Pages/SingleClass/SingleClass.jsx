@@ -3,15 +3,20 @@
 
 import { FaArrowRight, FaClock } from "react-icons/fa";
 import { BsPeople } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const SingleClass = ({ item }) => {
-    // console.log(item);
+
     const { img, class_name, duration, price,  total_enrolled_students } = item
     return (
     
         <div className="card bg-base-100 shadow-xl">
 
-            <figure className='overflow-hidden h-1/2'><img className='object-cover ' src={img} alt="Shoes" /></figure>
+            <figure className='overflow-hidden h-1/2'>
+
+                <img className='object-cover ' src={img} alt="Shoes" />
+                
+                </figure>
 
             <div className="card-body h-1/2">
 
@@ -24,9 +29,9 @@ const SingleClass = ({ item }) => {
                     <p> <BsPeople className='inline' />  {total_enrolled_students}</p>
                 </div>
                 <div className="card-actions justify-start mt-4">
-                    <button className="btn text-blue-500 font-bold">Enroll Now
+                    <Link to='/classes' className="btn text-blue-500 font-bold">Enroll Now
                         <FaArrowRight></FaArrowRight>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

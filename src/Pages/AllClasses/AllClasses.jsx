@@ -12,7 +12,7 @@ const AllClasses = () => {
     const [approvedClasses, isApprovedClassesLoading] = useApprovedClass()
     if(isApprovedClassesLoading){
         return <Loading/>
-    }
+    } 
     return (
         <>
             <Helmet>
@@ -20,7 +20,7 @@ const AllClasses = () => {
                 <link rel="canonical" href="https://www.tacobell.com/" />
             </Helmet>
 
-            <div className="px-20 py-10">
+            <div className="px-20 py-20 ">
                 {/* search */}
                 <div className="form-control  w-1/2 mx-auto">
                     <div className="input-group ">
