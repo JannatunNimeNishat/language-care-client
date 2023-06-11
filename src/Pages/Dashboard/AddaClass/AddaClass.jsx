@@ -48,7 +48,7 @@ const AddaClass = () => {
             <h3 className="text-3xl font-semibold">Add a class: </h3>
 
             <div className="mt-4">
-                <form onSubmit={handleSubmit(onSubmit)} className=" p-10 border w-[600px] space-y-4">
+                <form onSubmit={handleSubmit(onSubmit)} className=" p-10 border border-blue-500  w-[600px] space-y-4">
                     {/* 1st */}
                     <div className="form-control w-full ">
                         <label className="label">
@@ -147,7 +147,7 @@ const AddaClass = () => {
                     </div>
 
                     <div className="w-full text-start mt-3">
-                        <input className="mt-5 px-6 py-3 bg-blue-500 hover:bg-black text-white font-bold rounded-lg cursor-pointer" type="submit" value="submit" />
+                        <input className="mt-5 px-6 py-3 bg-blue-500 hover:bg-black text-white font-bold rounded-lg cursor-pointer" type="Submit" value="submit" />
                     </div>
                 </form>
             </div>

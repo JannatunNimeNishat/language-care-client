@@ -8,6 +8,8 @@ import { FaShoppingCart } from 'react-icons/fa';
 import useSelectedClass from '../../../hooks/useSelectedClass';
 import useCheckRole from '../../../hooks/useCheckRole';
 
+
+
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
@@ -48,6 +50,7 @@ const handleLightDarkToggle = (e)=>{
     }
 
     const navItems = <>
+   
         <li>
             <NavLink to='/' className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
         </li>
@@ -99,15 +102,7 @@ const handleLightDarkToggle = (e)=>{
                             Dashboard
                         </NavLink>
 
-                    }
-
-
-
-
-
-                    {/* <NavLink to={`/dashboard`} className={({ isActive }) => isActive ? 'active' : ''}>
-
-                        Dashboard</NavLink> */}
+                    }    
                 </li>
             </>
         }
@@ -118,7 +113,10 @@ const handleLightDarkToggle = (e)=>{
     </>
 
     return (
-        <div className="navbar bg-base-100 my-container font-semibold fixed z-10 min-w-full">
+        
+       
+       
+         <div className="navbar bg-base-100 my-container font-semibold fixed z-10 min-w-full">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden ">
@@ -170,6 +168,7 @@ const handleLightDarkToggle = (e)=>{
                 </div>
             </div>
         </div>
+      
     );
 };
 

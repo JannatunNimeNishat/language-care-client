@@ -7,7 +7,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useSelectedClass from "../../hooks/useSelectedClass";
 import useCheckRole from "../../hooks/useCheckRole";
-import Loading from "../Loading/Loading";
+
+import Reveal from "../../components/Reveal/Reveal";
 
 
 
@@ -69,7 +70,7 @@ const SingleClassCard = ({ item }) => {
 
     return (
         <div>
-
+            <Reveal>
             <div className={` ${available_seats === 0 ? 'bg-red-500' : 'bg-base-300'} card h-[600px]  shadow-xl`}>
 
                 <figure className='overflow-hidden h-1/2'><img className='object-cover ' src={img} alt="Shoes" /></figure>
@@ -95,6 +96,7 @@ const SingleClassCard = ({ item }) => {
                     </div>
                 </div>
             </div>
+            </Reveal>
         </div>
     );
 };

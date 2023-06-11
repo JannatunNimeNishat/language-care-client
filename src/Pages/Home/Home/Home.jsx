@@ -5,11 +5,10 @@ import NewsLetter from "../NewsLetter/NewsLetter";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import Testimonial from "../Testimonial/Testimonial";
-
-
+import Reveal from "../../../components/Reveal/Reveal";
 
 const Home = () => {
- 
+  
     return (
        <>
        <Helmet>
@@ -17,7 +16,11 @@ const Home = () => {
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
         <div>
+          <Reveal>
+
             <Banner></Banner>
+          </Reveal>
+        
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
             <Features></Features>
