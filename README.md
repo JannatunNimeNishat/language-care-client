@@ -1,10 +1,10 @@
 # Welcome to Language Care - A online language learning platform (Full-Stack)
 
-### Website Live Link:  
+### Website Live Link:  https://language-care.web.app/
 
-### Client Side Code:  
+### Client Side Code:  https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-JannatunNimeNishat
 
-### Server Side Code:  
+### Server Side Code:  https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-JannatunNimeNishat
 
 <br>
 
