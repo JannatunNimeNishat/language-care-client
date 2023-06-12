@@ -28,11 +28,10 @@ const SingleInstructorCard = ({ instructor }) => {
                     <div className="col-span-3 ml-16">
                         <p className="text-blue-500 capitalize font-bold">ABOUT ME</p>
 
-                        <h3 className="text-4xl mt-3 font-bold">Hello, I'm <span className="text-blue-500">{name}</span></h3>
+                        <h3 className="text-4xl mt-3 font-bold">Hello, I am <span className="text-blue-500">{name}</span></h3>
 
                         <p className="mt-8">My name is {name}, and I am passionate about education and inspiring young minds. As an experienced teacher with a background in elementary education, I believe that every child has the potential to succeed and thrive in a supportive learning environment.
-
-                            I hold a Bachelor's degree in Education from XYZ University and have been teaching for over a decade. Throughout my career, I have had the privilege of working with students from diverse backgrounds, which has enriched my teaching approach and allowed me to foster a culturally inclusive classroom.</p>
+                            I hold a Bachelors degree in Education from XYZ University and have been teaching for over a decade. Throughout my career, I have had the privilege of working with students from diverse backgrounds, which has enriched my teaching approach and allowed me to foster a culturally inclusive classroom.</p>
 
                         <div className="bg-blue-500 text-center mt-8 px-8 py-5 flex text-white justify-between items-center">
                             <div className="font-bold">

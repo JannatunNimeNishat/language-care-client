@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const AddaClass = () => {
 
@@ -27,6 +28,13 @@ const AddaClass = () => {
         axiosSecure.post('/add-class', newClass)
         .then(res =>{
             console.log(res.data);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
             
         })
        

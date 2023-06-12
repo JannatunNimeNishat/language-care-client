@@ -11,7 +11,7 @@ const useApprovedClass = () => {
         queryKey: ['approvedClasses'],
         enabled:!loading,
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/approved-classes')
+            const res = await axios.get('https://language-care-server.vercel.app/approved-classes')
             return res.data;
         }
     })

@@ -29,7 +29,7 @@ const Register = () => {
                         //console.log(result.user);
                         const newUser = { name: data.name, email: data.email, img: data.photoURL, role: 'student' }
                         // console.log(newUser);
-                        axios.post(`http://localhost:5000/create-user/${data.email}`, newUser)
+                        axios.post(`https://language-care-server.vercel.app/create-user/${data.email}`, newUser)
                             .then(res => {
                                 console.log('new user',res.data);
                                 navigate('/')
@@ -48,7 +48,7 @@ const Register = () => {
     };
 
     return (
-        <div className=' md:flex justify-center items-center mt-5 mb-5'>
+        <div className=' pt-20 md:flex justify-center items-center  mb-5'>
 
             <div className="lg:w-1/2  ">
                 <Lottie className="h-full" animationData={loginAnimation} loop={true} />;

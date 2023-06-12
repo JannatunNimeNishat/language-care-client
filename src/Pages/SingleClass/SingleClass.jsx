@@ -12,8 +12,8 @@ const SingleClass = ({ item }) => {
     return (
 
         <>
-            <Reveal>
                 <div className="card bg-base-100 shadow-xl">
+            <Reveal>
 
                     <figure className='overflow-hidden h-1/2'>
 
@@ -37,8 +37,8 @@ const SingleClass = ({ item }) => {
                             </Link>
                         </div>
                     </div>
+                </Reveal>
                 </div>
-            </Reveal>
         </>
     );
 };
