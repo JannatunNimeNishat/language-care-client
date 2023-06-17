@@ -6,6 +6,7 @@ import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import Testimonial from "../Testimonial/Testimonial";
 import Reveal from "../../../components/Reveal/Reveal";
+import AboutUs from "../AboutUs/AboutUs";
 
 const Home = () => {
   
@@ -25,6 +26,7 @@ const Home = () => {
             <PopularInstructors></PopularInstructors>
             <Features></Features>
             <Testimonial></Testimonial>
+            <AboutUs></AboutUs>
             <NewsLetter></NewsLetter>
         </div>
        </>

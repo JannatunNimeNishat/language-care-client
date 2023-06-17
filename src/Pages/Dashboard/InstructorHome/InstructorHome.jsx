@@ -9,7 +9,7 @@ const InstructorHome = () => {
         <>
             <Helmet>
                 <title>LanguageCare | Instructor Home</title>
-                <link rel="canonical" href="https://www.tacobell.com/" />
+               
             </Helmet>
             <div>
                 <h3 className="text-4xl ">Welcome <span className="font-bold text-blue-500">{user?.displayName}</span></h3>
