@@ -31,9 +31,9 @@ const Footer = () => {
                     <span className="footer-title">Useful links</span>
                     <Link to='/instructors' className="link link-hover">Instructors</Link>
                     <Link to='/classes' className="link link-hover">Classes</Link>
-                    <Link to='/' className="link link-hover">Home</Link>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">About us</a>
+                    <Link to='/blogs' className="link link-hover">Blogs</Link>
+                    <Link to='/contacts' className="link link-hover">Contact</Link>
+                    <a className="link link-hover">Home</a>
                 </div>
                 <div className=''>
                     <span className="footer-title">Contact</span>

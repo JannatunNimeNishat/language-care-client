@@ -24,6 +24,7 @@ import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses/EnrolledClasses"
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Blogs from "../Pages/Blogs/Blogs";
+import Contacts from "../Pages/Contacts/Contacts";
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
             {
                 path:'/blogs',
                 element:<Blogs></Blogs>
+            },
+            {
+                path:'/contacts',
+                element:<Contacts></Contacts>
             }
 
         ]
