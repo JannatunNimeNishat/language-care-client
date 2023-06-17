@@ -2,9 +2,9 @@
 
 ### Website Live Link:  https://language-care.web.app/
 
-### Client Side Code:  https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-JannatunNimeNishat
+### Client Side Code:  https://github.com/JannatunNimeNishat/language-care-client
 
-### Server Side Code:  https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-JannatunNimeNishat
+### Server Side Code:  https://github.com/JannatunNimeNishat/language-care-server
 
 <br>
 
