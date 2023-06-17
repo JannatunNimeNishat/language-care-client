@@ -9,7 +9,7 @@ const AboutUs = () => {
         <div className="   lg:pt-20  lg:pb-14 lg:min-h-[100vh] bg-[#fff6f4]">
             <div className=" px-10  py-10 lg:px-28 lg:py-28 lg:flex items-center">
                 <div className='lg:w-1/2'>
-                    <img className='lg:h-[500px]' src={a3} alt="" />
+                    <img className='lg:h-[500px] ' src={a3} alt="" />
                     <img className=' mt-5  lg:w-[180px] lg:h-[180px] lg:-mt-32 lg:ml-96' src={a5} alt="" />
                 </div>
                 <div className='lg:w-1/2 mt-5 lg:mt-0 lg:ml-20'>

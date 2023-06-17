@@ -7,6 +7,7 @@ import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import Testimonial from "../Testimonial/Testimonial";
 import Reveal from "../../../components/Reveal/Reveal";
 import AboutUs from "../AboutUs/AboutUs";
+import BlogAndNews from "../BlogAndNews/BlogAndNews";
 
 const Home = () => {
   
@@ -28,6 +29,7 @@ const Home = () => {
             <Testimonial></Testimonial>
             <AboutUs></AboutUs>
             <NewsLetter></NewsLetter>
+            <BlogAndNews></BlogAndNews>
         </div>
        </>
     );
