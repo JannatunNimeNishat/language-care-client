@@ -13,7 +13,7 @@ const BlogAndNews = () => {
                         <p className="uppercase text-blue-500 font-bold">BLOG & NEWS</p>
                         <h3 className="text-4xl font-bold  lg:mt-3 pt-1">Trending on Our Blogs</h3>
                     </div>
-                    <Link to='/classes'><LgButton btn_text='Read More Blogs'></LgButton></Link>
+                    <Link to='/blogs'><LgButton btn_text='Read More Blogs'></LgButton></Link>
 
                 </div>
 
