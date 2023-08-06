@@ -12,8 +12,8 @@ const SingleInstructorCard = ({ instructor }) => {
 
             <Reveal>
 
-                <div className="grid grid-cols-4   my-container px-16 ">
-                    <div className="col-span-1  w-full px-10 py-16  text-center  mx-auto bg-[#f5f5f5]">
+                <div className="grid grid-cols-1 lg:grid-cols-4   my-container px-5 lg:px-16 ">
+                    <div className="lg:col-span-1  w-full px-10 py-16  text-center  mx-auto bg-[#f5f5f5]">
                         <figure className="w-[150px] mx-auto">
                             <img className="rounded-full h-[150px] w-[150px]" src={img} alt="" />
                         </figure>
@@ -25,7 +25,8 @@ const SingleInstructorCard = ({ instructor }) => {
                             <FaLinkedin className="h-8 w-8  text-[#0072b1]" />
                         </div>
                     </div>
-                    <div className="col-span-3 ml-16">
+                    {/* details */}
+                    <div className="hidden lg:block lg:col-span-3 ml-16">
                         <p className="text-blue-500 capitalize font-bold">ABOUT ME</p>
 
                         <h3 className="text-4xl mt-3 font-bold">Hello, I am <span className="text-blue-500">{name}</span></h3>
@@ -56,13 +57,14 @@ const SingleInstructorCard = ({ instructor }) => {
 
                         </div>
                     </div>
+
                 </div>
 
             </Reveal>
             <br />
             <br />
             <br />
-            <br />
+           
         </>
 
 

@@ -16,7 +16,7 @@ const Navbar = () => {
     const [selectedClass] = useSelectedClass();
 
     const [role] = useCheckRole()
-
+    console.log(role);
     //toggle between light dark theme
     const [theme, setTheme] = useState(
         localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light'
@@ -93,7 +93,6 @@ const Navbar = () => {
                         <NavLink to={`/dashboard/studenthome`} className={({ isActive }) => isActive ? 'active' : ''}>
                             Dashboard
                         </NavLink>
-
                     }
                     {
                         role === 'instructor' &&
