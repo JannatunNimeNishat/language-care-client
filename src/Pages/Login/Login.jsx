@@ -11,7 +11,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
     const [isPasswordField, setIsPasswordField] = useState(true)
-
+    const [loginError, setLoginError] = useState('')
     const { signIn } = useContext(AuthContext)
 
     const location = useLocation()
@@ -21,14 +21,16 @@ const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data)
+        setLoginError('')
+        // console.log(data)
         signIn(data.email, data.password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error.message);
+                // console.log(error.message);
+                setLoginError(error.message);
             })
     };
 
@@ -68,9 +70,9 @@ const Login = () => {
 
                     </p>
 
-
+                    <small className="text-red-600 font-bold mt-2">{loginError && loginError}</small>
                     <input className='mt-5 rounded py-2 text-white font-semibold  primary-bg-color  cursor-pointer' type="submit" value="Login" />
-
+                    
                     <p className='mt-2 text-center'><small>Do not have an account ? <Link to='/register' className='font-semibold text-blue-600'>Register</Link></small></p>
                 </form>
                 <div className="divider">OR</div>
