@@ -20,9 +20,9 @@ const AllClasses = () => {
                 <link rel="canonical" href="https://www.tacobell.com/" />
             </Helmet>
 
-            <div className="px-20 py-20 ">
+            <div className="px-5 lg:px-20 py-20 ">
                 {/* search */}
-                <div className="form-control  w-1/2 mx-auto">
+                <div className="form-control  lg:w-1/2 mx-auto">
                     <div className="input-group ">
                         <input type="text" placeholder="Search…" className="input input-bordered w-full" />
                         <button className="btn btn-square">
@@ -32,7 +32,7 @@ const AllClasses = () => {
                 </div>
 
                 {/* class card */}
-                <div className="grid grid-cols-3 gap-5 mt-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
                     {
                         approvedClasses?.map(item => <SingleClassCard key={item._id}
                             item={item}

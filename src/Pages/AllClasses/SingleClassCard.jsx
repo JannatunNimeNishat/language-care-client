@@ -69,9 +69,9 @@ const SingleClassCard = ({ item }) => {
 
 
     return (
-        <div>
+        <div >
             <Reveal>
-            <div className={` ${available_seats === 0 ? 'bg-red-500' : 'bg-base-300'} card h-[600px]  shadow-xl`}>
+            <div className={` ${available_seats === 0 ? 'bg-red-500' : 'bg-base-300'} card lg:h-[600px]  shadow-xl`}>
 
                 <figure className='overflow-hidden h-1/2'><img className='object-cover ' src={img} alt="Shoes" /></figure>
 
