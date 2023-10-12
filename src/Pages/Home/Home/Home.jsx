@@ -8,31 +8,33 @@ import Testimonial from "../Testimonial/Testimonial";
 import Reveal from "../../../components/Reveal/Reveal";
 import AboutUs from "../AboutUs/AboutUs";
 import BlogAndNews from "../BlogAndNews/BlogAndNews";
+import UpComingEvents from "../UpComingEvents/UpComingEvents";
 
 const Home = () => {
-  
-    return (
-       <>
-       <Helmet>
+
+  return (
+    <>
+      <Helmet>
         <title>LanguageCare | Home</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
-        <div>
-          <Reveal>
+      <div>
+        <Reveal>
 
-            <Banner></Banner>
-          </Reveal>
-        
-            <PopularClasses></PopularClasses>
-            <PopularInstructors></PopularInstructors>
-            <Features></Features>
-            <Testimonial></Testimonial>
-            <AboutUs></AboutUs>
-            <NewsLetter></NewsLetter>
-            <BlogAndNews></BlogAndNews>
-        </div>
-       </>
-    );
+          <Banner></Banner>
+        </Reveal>
+
+        <PopularClasses></PopularClasses>
+        <PopularInstructors></PopularInstructors>
+        <Features></Features>
+        <Testimonial></Testimonial>
+        <UpComingEvents />
+        <AboutUs></AboutUs>
+        <NewsLetter></NewsLetter>
+        <BlogAndNews></BlogAndNews>
+      </div>
+    </>
+  );
 };
 
 export default Home;

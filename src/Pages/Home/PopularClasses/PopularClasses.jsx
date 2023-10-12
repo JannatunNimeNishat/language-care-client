@@ -12,7 +12,7 @@ const PopularClasses = () => {
     const { data: classes = [], isLoading: isClassesLoading } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
-            const res = await axios.get('https://language-care-server.vercel.app/popular-classes')
+            const res = await axios.get('http://localhost:5000/popular-classes')
             return res.data;
         }
     })

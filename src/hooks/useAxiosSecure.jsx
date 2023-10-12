@@ -5,13 +5,15 @@ import { useNavigate } from "react-router-dom";
 // import { config } from "localforage";
 
 const axiosSecure = axios.create({
-    baseURL:'https://language-care-server.vercel.app/'
+    baseURL:'http://localhost:5000/'
 })
 const useAxiosSecure = () =>{
+
     const {user, logOut} = useContext(AuthContext)
     const navigate = useNavigate()
 
     useEffect(()=>{
+        
         axiosSecure.interceptors.request.use((config)=>{
             const token = localStorage.getItem('access-token')
             if(token){
@@ -27,6 +29,7 @@ const useAxiosSecure = () =>{
             }
             return Promise.reject(error)
         })
+
     },[logOut, navigate])
 
     return [axiosSecure]

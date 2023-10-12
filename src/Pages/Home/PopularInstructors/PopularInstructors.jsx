@@ -10,7 +10,7 @@ const PopularInstructors = () => {
     const { data: instructors = [], isLoading: isInstructorLoading } = useQuery({
         queryKey: ['instructors'],
         queryFn: async () => {
-            const res = await axios.get('https://language-care-server.vercel.app/instructors')
+            const res = await axios.get('http://localhost:5000/instructors')
             return res.data;
         }
     })

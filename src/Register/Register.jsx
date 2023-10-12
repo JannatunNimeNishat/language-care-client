@@ -29,7 +29,7 @@ const Register = () => {
                         //console.log(result.user);
                         const newUser = { name: data.name, email: data.email, img: data.photoURL, role: 'student' }
                         // console.log(newUser);
-                        axios.post(`https://language-care-server.vercel.app/create-user/${data.email}`, newUser)
+                        axios.post(`http://localhost:5000/create-user/${data.email}`, newUser)
                             .then(res => {
                                 console.log('new user',res.data);
                                 navigate('/')
