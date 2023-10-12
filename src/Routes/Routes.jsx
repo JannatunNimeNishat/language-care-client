@@ -25,100 +25,105 @@ import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Blogs from "../Pages/Blogs/Blogs";
 import Contacts from "../Pages/Contacts/Contacts";
+import AllUpComingEvents from "../Pages/AllUpComingEvents";
 
 
 const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Main></Main>,
+        path: '/',
+        element: <Main></Main>,
         // errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/register',
-                element:<Register></Register>
+                path: '/register',
+                element: <Register></Register>
             },
             {
-                path:'/instructors',
-                element:<AllInstructors></AllInstructors>
+                path: '/instructors',
+                element: <AllInstructors></AllInstructors>
             },
             {
-                path:'/classes',
-                element:<AllClasses></AllClasses>
-               
+                path: '/classes',
+                element: <AllClasses></AllClasses>
+
             },
             {
-                path:'/blogs',
-                element:<Blogs></Blogs>
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
             {
-                path:'/contacts',
-                element:<Contacts></Contacts>
+                path: '/contacts',
+                element: <Contacts></Contacts>
+            },
+            {
+                path: '/allUpComingEvents',
+                element: <AllUpComingEvents />
             }
 
         ]
     },
     {
-        path:'/dashboard',
-        element:<Dashboard></Dashboard>,
-        children:[
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
             // students routes
             {
-                path:'studenthome',
-                element:<StudentsRoute><StudentHome></StudentHome></StudentsRoute>
+                path: 'studenthome',
+                element: <StudentsRoute><StudentHome></StudentHome></StudentsRoute>
             },
             {
-                path:'selectedclasses',
-                element:<StudentsRoute><MySelectedClasses></MySelectedClasses></StudentsRoute>
+                path: 'selectedclasses',
+                element: <StudentsRoute><MySelectedClasses></MySelectedClasses></StudentsRoute>
             },
             {
-                path:'payment',
-                element:<StudentsRoute><Payment></Payment></StudentsRoute>
+                path: 'payment',
+                element: <StudentsRoute><Payment></Payment></StudentsRoute>
             },
             {
-                path:'enrolledclasses',
-                element:<StudentsRoute><EnrolledClasses></EnrolledClasses></StudentsRoute>
+                path: 'enrolledclasses',
+                element: <StudentsRoute><EnrolledClasses></EnrolledClasses></StudentsRoute>
             },
             {
-                path:'paymnethistory',
-                element:<StudentsRoute><PaymentHistory></PaymentHistory></StudentsRoute>
+                path: 'paymnethistory',
+                element: <StudentsRoute><PaymentHistory></PaymentHistory></StudentsRoute>
             },
             // instructors route
             {
-                path:'instructorhome',
-                element:<InstructorRoute><InstructorHome></InstructorHome></InstructorRoute>
+                path: 'instructorhome',
+                element: <InstructorRoute><InstructorHome></InstructorHome></InstructorRoute>
             },
             {
-                path:'addaclass',
-                element:<InstructorRoute><AddaClass></AddaClass></InstructorRoute>
+                path: 'addaclass',
+                element: <InstructorRoute><AddaClass></AddaClass></InstructorRoute>
             },
             {
-                path:'instructor-classes',
-                element:<InstructorRoute><InstructorClasses></InstructorClasses></InstructorRoute>
+                path: 'instructor-classes',
+                element: <InstructorRoute><InstructorClasses></InstructorClasses></InstructorRoute>
             },
             //admin routes
             {
-                path:'adminhome',
-                element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
+                path: 'adminhome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
-                path:'manageadminclasses',
-                element:<AdminRoute><ManageAdminClasses></ManageAdminClasses></AdminRoute>
+                path: 'manageadminclasses',
+                element: <AdminRoute><ManageAdminClasses></ManageAdminClasses></AdminRoute>
             },
             {
-                path:'givefeedback/:id',
-                element:<AdminRoute><GiveFeedback></GiveFeedback></AdminRoute>
+                path: 'givefeedback/:id',
+                element: <AdminRoute><GiveFeedback></GiveFeedback></AdminRoute>
             },
             {
-                path:'manageadminusers',
-                element:<AdminRoute><ManageAdminUsers></ManageAdminUsers></AdminRoute>
+                path: 'manageadminusers',
+                element: <AdminRoute><ManageAdminUsers></ManageAdminUsers></AdminRoute>
             }
 
         ]
