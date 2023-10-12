@@ -2,11 +2,15 @@ import { Helmet } from "react-helmet-async";
 
 import { Link } from "react-router-dom";
 import useGetUpComingEvents from "../../hooks/useGetUpComingEvents";
+import Loading from "../Loading/Loading";
 
 
 const AllUpComingEvents = () => {
-    const [getUpComingEvents] = useGetUpComingEvents('')
-    console.log(getUpComingEvents);
+    const [getUpComingEvents,UpComingEventsLoading] = useGetUpComingEvents('')
+    //console.log(getUpComingEvents);
+    if (UpComingEventsLoading) {
+        return <Loading />
+    }
     return (
         <>
             <Helmet>

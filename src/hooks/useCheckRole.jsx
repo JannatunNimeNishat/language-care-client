@@ -10,7 +10,7 @@ const useCheckRole = () =>{
     /* if(!user){
         return 'user'
     } */
-    console.log(user?.email);
+    // console.log(user?.email);
     const {data: role = 'user',isLoading:roleLoading} = useQuery({
         queryKey:['role', user?.email],
         enabled:!loading && !!user,

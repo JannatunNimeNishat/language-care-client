@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import useGetUpComingEvents from "../../hooks/useGetUpComingEvents";
+
 import { BsCash, BsFillCalendarCheckFill, BsFillClockFill, BsFillPinMapFill, BsFillPeopleFill, BsFillLockFill } from "react-icons/bs";
 import { BiFace } from "react-icons/bi";
 import LgButton from "../../components/Buttons/LgButton";
@@ -8,17 +8,29 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import axios from "axios";
+
+import useGetSingleUpComingEvents from "../../hooks/useGetSingleUpComingEvent";
+import Loading from "../Loading/Loading";
 
 const SingleEventPage = () => {
+
     const { id } = useParams();
-    const [getUpComingEvents] = useGetUpComingEvents(id || '');
-    const { _id, eventTitle, eventImg, description, speakers, cost, eventDate, eventTime, location, organizer, bookedSlot, totalSlot } = getUpComingEvents || {};
 
     const { user } = useContext(AuthContext);
-    const { axiosSecure } = useAxiosSecure();
+    const [axiosSecure] = useAxiosSecure()
+
     const navigate = useNavigate();
     const currentLocation = useLocation()
+
+    const [getUpComingEvents, refetch, singleEventLoading] = useGetSingleUpComingEvents(id);
+
+    const { _id, eventTitle, eventImg, description, speakers, cost, eventDate, eventTime, location, organizer, bookedSlot, totalSlot } = getUpComingEvents || {};
+
+
+    if (singleEventLoading) {
+        return <Loading />
+    }
+
 
     const handleEventRegister = (id) => {
         console.log('click', id);
@@ -27,13 +39,13 @@ const SingleEventPage = () => {
             event_id: id
         }
         if (user) {
-            console.log('fontend reached');
-            // axiosSecure.patch(`/admin-feedback/${id}`, feedBack )
-            // axiosSecure.patch(`/register_event/`, data)
-            axios.patch('http://localhost:5000/register_event/', data)
+
+
+            axiosSecure.patch(`/register_event/`, data)
                 .then(res => {
-                   
+
                     if (res.data.modifiedCount > 0) {
+                        refetch();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -41,6 +53,7 @@ const SingleEventPage = () => {
                             showConfirmButton: false,
                             timer: 1500
                         })
+
                     } else {
                         Swal.fire('You have already registered to this event')
                     }

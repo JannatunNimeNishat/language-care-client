@@ -2,13 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
 
 
-const useGetUpComingEvents = (id = '') => {
+const useGetUpComingEvents = () => {
     const [axiosSecure] = useAxiosSecure();
-    console.log('id', id);
+    
+   
     const { data: getUpComingEvents = [], isLoading: UpComingEventsLoading, refetch } = useQuery({
         queryKey: ['getUpComingEvents'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/upcoming_events/${id}`)
+            const res = await axiosSecure.get(`/upcoming_events`)
             return res.data
         }
     })

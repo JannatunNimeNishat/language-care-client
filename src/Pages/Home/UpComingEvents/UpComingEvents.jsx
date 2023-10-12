@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import Loading from "../../Loading/Loading";
 
 const UpComingEvents = () => {
-    const [getUpComingEvents, UpComingEventsLoading] = useGetUpComingEvents('')
-    console.log(getUpComingEvents);
+    const [getUpComingEvents, UpComingEventsLoading] = useGetUpComingEvents()
+    //console.log(getUpComingEvents);
     if (UpComingEventsLoading) {
         return <Loading />
     }
