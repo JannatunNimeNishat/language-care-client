@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import useGetUpComingEvents from "../hooks/useGetUpComingEvents";
+
 import { Link } from "react-router-dom";
+import useGetUpComingEvents from "../../hooks/useGetUpComingEvents";
 
 
 const AllUpComingEvents = () => {
@@ -23,11 +24,11 @@ const AllUpComingEvents = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-3 py-12 gap-8">
+                <div className="grid lg:grid-cols-3 py-12 gap-8">
                     {
                         getUpComingEvents?.map(event => <Link
                             key={event?.id}
-                            to={`${event?._id}`}
+                            to={`/singleEvent/${event?._id}`}
                             className=' text-white relative border  shadow-xl hover:shadow-2xl 
                                     transition ease-in-out delay-75   hover:scale-95  duration-200 bg-white
                                     '

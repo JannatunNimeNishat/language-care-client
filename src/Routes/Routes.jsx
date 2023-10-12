@@ -25,7 +25,9 @@ import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Blogs from "../Pages/Blogs/Blogs";
 import Contacts from "../Pages/Contacts/Contacts";
-import AllUpComingEvents from "../Pages/AllUpComingEvents";
+import AllUpComingEvents from "../Pages/AllUpComingEvents/AllUpComingEvents";
+import SingleEventPage from "../Pages/AllUpComingEvents/SingleEventPage";
+
 
 
 const router = createBrowserRouter([
@@ -66,6 +68,10 @@ const router = createBrowserRouter([
             {
                 path: '/allUpComingEvents',
                 element: <AllUpComingEvents />
+            },
+            {
+                path: '/singleEvent/:id',
+                element: <SingleEventPage />
             }
 
         ]

@@ -4,15 +4,19 @@ import useGetUpComingEvents from "../../../hooks/useGetUpComingEvents";
 import Reveal from "../../../components/Reveal/Reveal";
 import LgButton from "../../../components/Buttons/LgButton";
 import { Link } from "react-router-dom";
+import Loading from "../../Loading/Loading";
 
 const UpComingEvents = () => {
-    const [getUpComingEvents] = useGetUpComingEvents('')
+    const [getUpComingEvents, UpComingEventsLoading] = useGetUpComingEvents('')
     console.log(getUpComingEvents);
+    if (UpComingEventsLoading) {
+        return <Loading />
+    }
     return (
         <>
             <Reveal>
                 <div className="my-container py-10 lg:py-28 px-3">
-                 
+
                     <div className="lg:flex justify-between items-center">
                         <div className="space-y-2 lg:space-y-0 mb-5 lg:mb-0">
                             <p className="uppercase text-blue-500 font-bold">Events & News</p>
@@ -25,7 +29,7 @@ const UpComingEvents = () => {
 
                     <div className='mt-16 lg:grid grid-cols-6 pb-5 lg:pb-12 gap-5'>
                         {/* 1st */}
-                        <Link to={`${getUpComingEvents[0]?._id}`}
+                        <Link to={`/singleEvent/${getUpComingEvents[0]?._id}`}
                             style={{ '--image-url': `url(${getUpComingEvents[0]?.eventImg})` }}
                             className='bg-[image:var(--image-url)]  lg:h-[355px] lg:w-[600px] bg-cover bg-center col-span-3 
                             transition ease-in-out delay-100 bg-blue-500  hover:scale-95 hover:bg-indigo-500 duration-300
@@ -40,9 +44,9 @@ const UpComingEvents = () => {
                         {/* 2nd */}
                         <div className='col-span-3  lg:flex gap-5  justify-between '>
                             {
-                                getUpComingEvents?.slice(1, 3)?.map(event => <Link 
+                                getUpComingEvents && getUpComingEvents?.slice(1, 3)?.map(event => <Link
                                     key={event?.id}
-                                    to={`${event?._id}`}
+                                    to={`/singleEvent/${event?._id}`}
                                     className=' text-white relative border  shadow-xl hover:shadow-2xl 
                                     transition ease-in-out delay-75   hover:scale-95  duration-200
                                     '
