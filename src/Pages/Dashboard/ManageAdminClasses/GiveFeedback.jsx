@@ -18,7 +18,7 @@ const GiveFeedback = () => {
         axiosSecure.patch(`/admin-feedback/${id}`, feedBack )
             .then(res => {
                 console.log(res.data);
-                if (res.data. modifiedCount > 0) {
+                if (res.data.modifiedCount > 0) {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',

@@ -1,16 +1,67 @@
 import { Helmet } from "react-helmet-async";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import useGetUpComingEvents from "../../hooks/useGetUpComingEvents";
 import { BsCash, BsFillCalendarCheckFill, BsFillClockFill, BsFillPinMapFill, BsFillPeopleFill, BsFillLockFill } from "react-icons/bs";
 import { BiFace } from "react-icons/bi";
 import LgButton from "../../components/Buttons/LgButton";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const SingleEventPage = () => {
     const { id } = useParams();
     const [getUpComingEvents] = useGetUpComingEvents(id || '');
-    console.log(getUpComingEvents);
     const { _id, eventTitle, eventImg, description, speakers, cost, eventDate, eventTime, location, organizer, bookedSlot, totalSlot } = getUpComingEvents || {};
 
+    const { user } = useContext(AuthContext);
+    const { axiosSecure } = useAxiosSecure();
+    const navigate = useNavigate();
+    const currentLocation = useLocation()
+
+    const handleEventRegister = (id) => {
+        console.log('click', id);
+        const data = {
+            email: user?.email,
+            event_id: id
+        }
+        if (user) {
+            console.log('fontend reached');
+            // axiosSecure.patch(`/admin-feedback/${id}`, feedBack )
+            // axiosSecure.patch(`/register_event/`, data)
+            axios.patch('http://localhost:5000/register_event/', data)
+                .then(res => {
+                   
+                    if (res.data.modifiedCount > 0) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your have been registered successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    } else {
+                        Swal.fire('You have already registered to this event')
+                    }
+                })
+        } else {
+            Swal.fire({
+                title: 'You have to login first',
+                text: "",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: currentLocation } })
+                }
+            })
+        }
+
+    }
 
 
     return (
@@ -19,17 +70,17 @@ const SingleEventPage = () => {
                 <title>{getUpComingEvents?.eventTitle}</title>
                 <link rel="canonical" href="https://www.tacobell.com/" />
             </Helmet>
-            <div className="px-5  lg:py-28 my-container ">
+            <div className="px-5 py-20  lg:py-28 my-container ">
                 <div>
-                    <h3 className="text-6xl text-center pb-8 font-semibold">{eventTitle}</h3>
-                    <img className=" w-[65%] mx-auto" src={eventImg} alt="" />
+                    <h3 className="text-2xl lg:text-6xl text-center pb-3 lg:pb-8 font-semibold">{eventTitle}</h3>
+                    <img className=" lg:w-[65%] mx-auto" src={eventImg} alt="" />
                 </div>
 
-                <div className="grid grid-cols-9 gap-8 py-8">
+                <div className="grid lg:grid-cols-9 lg:gap-8 py-8">
 
-                    <div className="col-span-6  ">
+                    <div className="w-full  lg:col-span-6  ">
                         {/* about */}
-                        <div className="bg-[#FFF6F4] px-10 py-10">
+                        <div className="bg-[#FFF6F4] px-3 lg:px-10 py-3 lg:py-12">
                             <h3 className="text-3xl font-semibold pb-4 ">About the Event</h3>
                             <p className="text-justify">{description}</p>
                             <p className="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum eos blanditiis tempora culpa hic ipsum ipsa minus mollitia? Ipsam magni ratione dignissimos asperiores incidunt totam,
@@ -41,27 +92,11 @@ const SingleEventPage = () => {
                                 quis odit recusandae fugit rem nulla quibusdam perspiciatis dolorum quisquam provident dicta praesentium voluptatum fugiat eveniet. Ipsa consequuntur assumenda veritatis, nihil exercitationem autem maxime repellat sunt dolore nobis consequatur est repudiandae id quas unde impedit harum magni perspiciatis cupiditate corporis excepturi architecto corrupti.</p>
 
                         </div>
-                        <br />
-                        {/* Our Speaker */}
-                        <div className="bg-[#FFF6F4] px-10 py-10">
-                            <h3 className="text-3xl font-semibold pb-4 ">Our Speaker</h3>
-                            {
-                                speakers?.map((singleSpeaker, index) => <div
-                                    key={index}
-                                    className="flex items-center gap-5 mt-3"
-                                >
-                                    <img className="h-[150px] w-[150px] rounded-full" src={singleSpeaker?.speakerImg} alt="" />
-                                    <div>
-                                        <p className="text-xl font-semibold">{singleSpeaker?.speakerName}</p>
-                                        <p className="py-2">{singleSpeaker?.title}</p>
-                                        <p className="py-3 text-justify">{singleSpeaker?.about}</p>
-                                    </div>
-                                </div>)
-                            }
-                        </div>
+
+
                     </div>
 
-                    <div className="col-span-3 px-8 py-5 bg-[#FFF6F4]">
+                    <div className="lg:col-span-3 mt-5 lg:mt-0 px-8 py-5 bg-[#FFF6F4]">
 
                         <div className="flex justify-between py-2">
                             <p className="flex items-center gap-3">
@@ -127,14 +162,32 @@ const SingleEventPage = () => {
                             <h3 className="">{bookedSlot}</h3>
                         </div>
 
-                        <div className="pt-5 flex justify-center items-center">
+                        <div
+                            onClick={() => handleEventRegister(_id)}
+                            className="pt-8 flex justify-center items-center">
                             <LgButton btn_text={'Register'} />
                         </div>
 
 
                     </div>
                 </div>
-
+                {/* Our Speaker */}
+                <div className="bg-[#FFF6F4] px-10 py-10 ">
+                    <h3 className="text-3xl font-semibold pb-4 ">Our Speaker</h3>
+                    {
+                        speakers?.map((singleSpeaker, index) => <div
+                            key={index}
+                            className="block lg:flex items-center gap-5 my-6"
+                        >
+                            <img className="h-[130px] w-[130px] mx-auto lg:mx-0  rounded-full" src={singleSpeaker?.speakerImg} alt="" />
+                            <div className="text-center lg:text-left">
+                                <p className="text-xl font-semibold">{singleSpeaker?.speakerName}</p>
+                                <p className="py-2">{singleSpeaker?.title}</p>
+                                <p className="py-3 text-justify">{singleSpeaker?.about}</p>
+                            </div>
+                        </div>)
+                    }
+                </div>
 
             </div>
 
