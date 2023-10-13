@@ -55,7 +55,6 @@ const Dashboard = () => {
                             <li><NavLink to='/dashboard/registered_events' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
                                 <BsCalendar2Event className="h-5 w-5" />
                                 Events</NavLink></li>
-
                         </>
                     }
                     {
@@ -77,15 +76,35 @@ const Dashboard = () => {
                                 <FaHome className="h-5 w-5" />
                                 Admin Home
                             </NavLink></li>
+
+                        {/* manage classes */}
                             <li><NavLink to='/dashboard/manageadminclasses' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
                                 <MdOutlineClass className="h-5 w-5" />
                                 Manage Classes
 
                             </NavLink></li>
+
+                            {/* manage user */}
                             <li><NavLink to='/dashboard/manageadminusers' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
                                 <FaUsers className="h-5 w-5" />
                                 Manage Users
                             </NavLink></li>
+                            
+
+                            {/* add event */}
+                            <li><NavLink to='/dashboard/add_event' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                                <BsCalendar2Event className="h-5 w-5" />
+                                Add Event
+                            </NavLink></li>
+
+
+                            {/* manage events */}
+                            <li><NavLink to='/dashboard/manage_events' className={({ isActive }) => isActive ? 'active-dashboard-route' : ''}>
+                                <BsCalendar2Event className="h-5 w-5" />
+                                Manage Events
+                            </NavLink></li>
+
+
                         </>
                     }
 

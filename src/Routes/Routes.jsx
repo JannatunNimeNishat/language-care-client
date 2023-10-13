@@ -28,6 +28,8 @@ import Contacts from "../Pages/Contacts/Contacts";
 import AllUpComingEvents from "../Pages/AllUpComingEvents/AllUpComingEvents";
 import SingleEventPage from "../Pages/AllUpComingEvents/SingleEventPage";
 import RegisteredEvents from "../Pages/Dashboard/RegisteredEvents/RegisteredEvents";
+import ManageAdminEvents from "../Pages/Dashboard/Dashboard/ManageAdminEvents/ManageAdminEvents";
+import AddaEvent from "../Pages/Dashboard/AddaEvent/AddaEvent";
 
 
 
@@ -135,6 +137,14 @@ const router = createBrowserRouter([
             {
                 path: 'registered_events',
                 element: <StudentsRoute><RegisteredEvents /></StudentsRoute>
+            },
+            {
+                path: 'manage_events',
+                element: <ManageAdminEvents />
+            },
+            {
+                path:'add_event',
+                element:<AddaEvent/>
             }
 
         ]
