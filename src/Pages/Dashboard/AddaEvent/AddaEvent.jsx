@@ -11,7 +11,7 @@ const AddaEvent = () => {
     const { user } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
 
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
 
     const onSubmit = data => {
@@ -32,24 +32,24 @@ const AddaEvent = () => {
             eventTime: data.time,
             location: data.location,
             organizer: data.organizer_name,
-            totalSlot: data.total_slot,
-            bookedSlot: data.booked_slot,
+            totalSlot: parseInt(data.total_slot),
+            bookedSlot: parseInt(data.booked_slot),
             description: data.description,
             registeredStudentsId: []
 
         }
-        console.log(newClass);
+        console.log(newClass.bookedSlot, typeof (bookedSlot));
         axiosSecure.post('/add-event', newClass)
-        .then(res =>{
-            console.log(res.data);
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500
-              })
-        })
+            .then(res => {
+                console.log(res.data);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
         reset()
 
 
