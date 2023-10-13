@@ -5,16 +5,12 @@ import Footer from "../Pages/Shared/Footer/Footer";
 import MessengerChat from "../components/MessengerChat/MessengerChat";
 
 
-
 const Main = () => {
-
 
     return (
         <>
             <div>
-
                 <Navbar></Navbar>
-
                 <Outlet></Outlet>
                 <MessengerChat />
                 <Footer></Footer>

@@ -27,6 +27,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Contacts from "../Pages/Contacts/Contacts";
 import AllUpComingEvents from "../Pages/AllUpComingEvents/AllUpComingEvents";
 import SingleEventPage from "../Pages/AllUpComingEvents/SingleEventPage";
+import RegisteredEvents from "../Pages/Dashboard/RegisteredEvents/RegisteredEvents";
 
 
 
@@ -130,6 +131,10 @@ const router = createBrowserRouter([
             {
                 path: 'manageadminusers',
                 element: <AdminRoute><ManageAdminUsers></ManageAdminUsers></AdminRoute>
+            },
+            {
+                path: 'registered_events',
+                element: <StudentsRoute><RegisteredEvents /></StudentsRoute>
             }
 
         ]
