@@ -14,7 +14,7 @@ const ManageAdminEvents = () => {
             return res.data
         }
     })
-    console.log(allEvents);
+
 
     const handleEditEvent = (_id) =>{
         /* console.log(_id);
@@ -29,7 +29,7 @@ const ManageAdminEvents = () => {
 
     const handleDeleteEvent = (_id)=>{
         console.log(_id);
-        axiosSecure.patch(`/delete_event/${_id}`)
+        axiosSecure.delete(`/delete_event/${_id}`)
         .then(res =>{
             console.log(res.data);
            if(res.data.deletedCount>0){
