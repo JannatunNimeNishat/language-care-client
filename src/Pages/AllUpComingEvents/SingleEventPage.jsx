@@ -11,6 +11,8 @@ import Swal from "sweetalert2";
 
 import useGetSingleUpComingEvents from "../../hooks/useGetSingleUpComingEvent";
 import Loading from "../Loading/Loading";
+import useCheckRole from "../../hooks/useCheckRole";
+import { FaArrowRight } from "react-icons/fa";
 
 const SingleEventPage = () => {
 
@@ -21,7 +23,7 @@ const SingleEventPage = () => {
 
     const navigate = useNavigate();
     const currentLocation = useLocation()
-
+    const [role] = useCheckRole();
     const [getUpComingEvents, refetch, singleEventLoading] = useGetSingleUpComingEvents(id);
 
     const { _id, eventTitle, eventImg, description, speakers, cost, eventDate, eventTime, location, organizer, bookedSlot, totalSlot } = getUpComingEvents || {};
@@ -176,9 +178,14 @@ const SingleEventPage = () => {
                         </div>
 
                         <div
-                            onClick={() => handleEventRegister(_id)}
-                            className="pt-8 flex justify-center items-center">
-                            <LgButton btn_text={'Register'} />
+                            className="pt-8 flex justify-center items-center"
+                        >
+                            <button onClick={() =>handleEventRegister(_id)} className="btn bg-blue-500 text-white font-bold hover:bg-black"
+                       disabled={totalSlot === 0  || role === 'instructor' || role === 'admin'  ? true: false}
+                        >Enroll Now
+                            <FaArrowRight></FaArrowRight>
+                        </button>
+
                         </div>
 
 
