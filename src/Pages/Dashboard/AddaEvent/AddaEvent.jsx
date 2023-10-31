@@ -1,6 +1,6 @@
-import { useContext } from "react";
+
 import { Helmet } from "react-helmet-async";
-import { AuthContext } from "../../../Provider/AuthProvider";
+
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const AddaEvent = () => {
 
-    const { user } = useContext(AuthContext)
+    
     const [axiosSecure] = useAxiosSecure()
 
     const { register, handleSubmit, reset } = useForm();

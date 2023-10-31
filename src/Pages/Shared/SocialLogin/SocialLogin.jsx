@@ -17,7 +17,7 @@ const SocialLogin = () => {
             const loggedUser =result.user;
             const newUser = {name: loggedUser.displayName, email: loggedUser.email, img:loggedUser.photoURL, role: 'student'}
             // console.log(newUser);
-            axios.post(`http://localhost:5000/users/${loggedUser.email}`, newUser)
+            axios.post(`https://language-care-server.vercel.app/users/${loggedUser.email}`, newUser)
             .then(result =>{
                 console.log(result.data);
             })

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import { config } from "localforage";
 
 const axiosSecure = axios.create({
-    baseURL:'http://localhost:5000/'
+    baseURL:'https://language-care-server.vercel.app/'
 })
 const useAxiosSecure = () =>{
 
