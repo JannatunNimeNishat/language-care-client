@@ -9,8 +9,15 @@ import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 
+const defaultValues = {
+    adminDefaultValues: { email: "admin@admin.com", password: "Admin!123" },
+    teacher: { email: "instructor@gmail.com", password: "Abc!@#1996" },
+    student: { email: "student22@gmail.com", password: "Student!@#" },
+  };
+
 const Login = () => {
     const [isPasswordField, setIsPasswordField] = useState(true)
+    const [loginOptions, setLoginOptions] = useState(defaultValues.adminDefaultValues);
     const [loginError, setLoginError] = useState('')
     const { signIn } = useContext(AuthContext)
 
@@ -18,7 +25,7 @@ const Login = () => {
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/';
     //console.log(from);
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
         setLoginError('')
@@ -34,6 +41,13 @@ const Login = () => {
             })
     };
 
+    const handleLoginOption = (role) => {
+        const selectedOptions = defaultValues[role];
+        setLoginOptions(selectedOptions);
+        reset(selectedOptions); // Reset form values with new default values
+    };
+
+
     return (
         <div className=' md:flex justify-center items-center '>
 
@@ -41,9 +55,15 @@ const Login = () => {
                 <Lottie className="h-full" animationData={loginAnimation} loop={true} />;
             </div>
 
-            <div className='border w-full lg:w-96  px-12 lg:px-8 py-3 rounded '>
-                <h3 className='text-2xl font-semibold mt-3'>Sign In</h3>
-
+            <div className='border w-full lg:w-96  px-12 lg:px-8 py-3 rounded relative'>
+               <div className="flex  items-center justify-between">
+               <h3 className='text-2xl font-semibold mt-3'>Sign In</h3>
+                <div className="flex justify-center gap-2 absolute -top-8 right-0 ">
+                    <button onClick={() => handleLoginOption("adminDefaultValues")} className="px-3 py-1 bg-blue-500 text-white rounded">Admin</button>
+                    <button onClick={() => handleLoginOption("teacher")} className="px-2 py-1 bg-blue-500 text-white rounded">Teacher</button>
+                    <button onClick={() => handleLoginOption("student")} className="px-2 py-1 bg-blue-500 text-white rounded">Student</button>
+                </div>
+               </div>
                 <form onSubmit={handleSubmit(onSubmit)} className='mt-8 flex flex-col '>
                     <label >Email</label>
                     <input className='border-2  rounded mt-1 pl-2 py-1' placeholder='Enter your email' type="email" name="email"
