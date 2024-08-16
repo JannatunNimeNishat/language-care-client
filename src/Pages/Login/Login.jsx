@@ -12,7 +12,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const defaultValues = {
     adminDefaultValues: { email: "admin@admin.com", password: "Admin!123" },
     teacher: { email: "instructor@gmail.com", password: "Abc!@#1996" },
-    student: { email: "student22@gmail.com", password: "Student!@#" },
+    student: { email: "student@gmail.com", password: "Abc!@#1996" },
   };
 
 const Login = () => {
