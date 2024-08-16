@@ -1,6 +1,6 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useCheckRole from "../../../hooks/useCheckRole";
-
+import { IoReorderThreeSharp } from "react-icons/io5";
 import { FaHome, FaUsers } from "react-icons/fa";
 import { MdOutlineClass, MdPayment } from "react-icons/md";
 
@@ -22,8 +22,8 @@ const Dashboard = () => {
         <div className="drawer lg:drawer-open ">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
+                <label htmlFor="my-drawer-2" className="lg:hidden w-full"><IoReorderThreeSharp className="h-10 w-10" /></label>
                 {/* Page content here */}
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 <Outlet></Outlet>
             </div>
